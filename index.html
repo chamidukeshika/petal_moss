@@ -13,18 +13,14 @@
 
     <title>Petal Moss | Connect With Us</title>
 
-    <!-- =====================================================
-       FAVICON
-       Embedded directly -> no /favicon.ico 404 request
-  ====================================================== -->
+    <!-- Preload logo immediately -->
+    <link rel="preload" href="./Logo.webp" as="image" type="image/webp" fetchpriority="high" />
 
+    <!-- Embedded favicon: no favicon.ico 404 -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23fff1f5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='38'%3E🌸%3C/text%3E%3C/svg%3E" />
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23fff0f5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='38'%3E🌸%3C/text%3E%3C/svg%3E" />
 
-    <!-- =====================================================
-       FONTS
-  ====================================================== -->
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -32,17 +28,10 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-    <!-- =====================================================
-       ICONS
-  ====================================================== -->
-
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <style>
-        /* =========================================================
-       LIGHT THEME — DEFAULT
-    ========================================================= */
-
         :root {
             --bg-1: #fff9fb;
             --bg-2: #fff4f8;
@@ -56,23 +45,14 @@
 
             --glass-1: rgba(255, 255, 255, .48);
             --glass-2: rgba(255, 255, 255, .24);
-
             --glass-border: rgba(255, 255, 255, .66);
 
-            --shadow:
-                0 16px 42px rgba(137, 82, 101, .09);
+            --shadow: 0 16px 42px rgba(137, 82, 101, .09);
+            --shadow-soft: 0 10px 25px rgba(121, 75, 88, .06);
 
-            --shadow-soft:
-                0 10px 25px rgba(121, 75, 88, .06);
-
-            --petal-a: rgba(244, 111, 157, .52);
-            --petal-b: rgba(255, 204, 224, .25);
+            --petal-a: rgba(244, 111, 157, .46);
+            --petal-b: rgba(255, 204, 224, .22);
         }
-
-
-        /* =========================================================
-       DARK THEME
-    ========================================================= */
 
         html[data-theme="dark"] {
             --bg-1: #0d0a12;
@@ -87,23 +67,14 @@
 
             --glass-1: rgba(255, 255, 255, .09);
             --glass-2: rgba(255, 255, 255, .035);
-
             --glass-border: rgba(255, 255, 255, .15);
 
-            --shadow:
-                0 20px 55px rgba(0, 0, 0, .32);
+            --shadow: 0 20px 55px rgba(0, 0, 0, .32);
+            --shadow-soft: 0 12px 30px rgba(0, 0, 0, .23);
 
-            --shadow-soft:
-                0 12px 30px rgba(0, 0, 0, .23);
-
-            --petal-a: rgba(255, 100, 151, .56);
-            --petal-b: rgba(207, 153, 255, .20);
+            --petal-a: rgba(255, 100, 151, .54);
+            --petal-b: rgba(207, 153, 255, .18);
         }
-
-
-        /* =========================================================
-       RESET
-    ========================================================= */
 
         *,
         *::before,
@@ -113,23 +84,18 @@
             padding: 0;
         }
 
-
         html {
             color-scheme: light;
             scroll-behavior: smooth;
             background: var(--bg-1);
         }
 
-
         html[data-theme="dark"] {
             color-scheme: dark;
         }
 
-
         body {
             min-height: 100dvh;
-
-            margin: 0;
 
             font-family:
                 "DM Sans",
@@ -159,38 +125,31 @@
 
             -webkit-overflow-scrolling: touch;
 
-            overscroll-behavior-y: auto;
-
             -webkit-font-smoothing: antialiased;
-
             text-rendering: optimizeLegibility;
 
             transition:
-                background .32s ease,
+                background .3s ease,
                 color .25s ease;
         }
-
 
         button,
         a {
             -webkit-tap-highlight-color: transparent;
         }
 
-
         button {
             font: inherit;
         }
-
 
         img {
             display: block;
             max-width: 100%;
         }
 
-
-        /* =========================================================
-       MAIN WIDTH
-    ========================================================= */
+        /* =========================
+       PAGE
+    ========================= */
 
         .page {
             width: min(100%, 820px);
@@ -198,22 +157,15 @@
             margin-inline: auto;
 
             padding:
-
-                max(16px,
-                    env(safe-area-inset-top)) max(12px,
-                    env(safe-area-inset-right)) max(32px,
-                    env(safe-area-inset-bottom)) max(12px,
-                    env(safe-area-inset-left));
+                max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
         }
 
-
-        /* =========================================================
-       SUBTLE BACKGROUND GRID
-    ========================================================= */
+        /* =========================
+       BACKGROUND GRID
+    ========================= */
 
         .background-grid {
             position: fixed;
-
             inset: 0;
 
             z-index: -5;
@@ -223,61 +175,47 @@
             opacity: .32;
 
             background-image:
-
                 linear-gradient(rgba(216, 126, 155, .07) 1px,
                     transparent 1px),
-
                 linear-gradient(90deg,
                     rgba(216, 126, 155, .07) 1px,
                     transparent 1px);
 
-            background-size:
-                36px 36px;
+            background-size: 36px 36px;
         }
-
 
         html[data-theme="dark"] .background-grid {
             opacity: .4;
 
             background-image:
-
                 linear-gradient(rgba(255, 255, 255, .035) 1px,
                     transparent 1px),
-
                 linear-gradient(90deg,
                     rgba(255, 255, 255, .035) 1px,
                     transparent 1px);
         }
 
-
-        /* =========================================================
-       GLOBAL PETAL OVERLAY
-
-       IMPORTANT:
-       z-index is HIGHER than cards.
-       pointer-events:none means links/buttons still work.
-    ========================================================= */
+        /* =========================
+       PETALS OVER COMPONENTS
+    ========================= */
 
         .petal-overlay {
             position: fixed;
-
             inset: 0;
 
             z-index: 500;
 
-            pointer-events: none;
-
             overflow: hidden;
+
+            pointer-events: none;
 
             contain: strict;
         }
 
-
         .petal {
             position: absolute;
 
-            top: -40px;
-
+            top: -50px;
             left: var(--left);
 
             width: var(--size);
@@ -296,7 +234,7 @@
                     var(--petal-b));
 
             transform:
-                translate3d(0, -50px, 0) rotate(var(--start-rotation));
+                translate3d(0, -60px, 0) rotate(var(--rotation));
 
             animation:
                 petalFall var(--duration) linear infinite;
@@ -307,62 +245,48 @@
             will-change: transform;
 
             backface-visibility: hidden;
-
-            transform-style: preserve-3d;
         }
-
-
-        .petal.blur {
-            filter: blur(.45px);
-        }
-
 
         @keyframes petalFall {
-
             0% {
                 transform:
                     translate3d(0,
                         -60px,
-                        0) rotate(var(--start-rotation));
+                        0) rotate(var(--rotation));
             }
 
-
-            20% {
+            22% {
                 transform:
                     translate3d(var(--x1),
-                        22vh,
-                        0) rotate(calc(var(--start-rotation) + 85deg));
+                        24vh,
+                        0) rotate(calc(var(--rotation) + 90deg));
             }
 
-
-            42% {
+            48% {
                 transform:
                     translate3d(var(--x2),
-                        46vh,
-                        0) rotate(calc(var(--start-rotation) + 175deg));
+                        50vh,
+                        0) rotate(calc(var(--rotation) + 190deg));
             }
 
-
-            67% {
+            74% {
                 transform:
                     translate3d(var(--x3),
-                        72vh,
-                        0) rotate(calc(var(--start-rotation) + 275deg));
+                        77vh,
+                        0) rotate(calc(var(--rotation) + 290deg));
             }
-
 
             100% {
                 transform:
                     translate3d(var(--x4),
                         112vh,
-                        0) rotate(calc(var(--start-rotation) + 430deg));
+                        0) rotate(calc(var(--rotation) + 430deg));
             }
         }
 
-
-        /* =========================================================
-       HEADER
-    ========================================================= */
+        /* =========================
+       TOP BAR
+    ========================= */
 
         .topbar {
             position: relative;
@@ -381,26 +305,25 @@
                 clamp(14px, 3vw, 21px);
         }
 
-
         .brand-pill,
         .theme-button {
+            border:
+                1px solid var(--glass-border);
+
             background:
                 linear-gradient(145deg,
                     var(--glass-1),
                     var(--glass-2));
 
-            border:
-                1px solid var(--glass-border);
-
-            backdrop-filter: blur(14px);
+            backdrop-filter:
+                blur(12px);
 
             -webkit-backdrop-filter:
-                blur(14px);
+                blur(12px);
 
             box-shadow:
                 0 8px 20px rgba(0, 0, 0, .045);
         }
-
 
         .brand-pill {
             display: inline-flex;
@@ -410,20 +333,19 @@
             gap: 9px;
 
             padding:
-
                 clamp(8px, 2.2vw, 11px) clamp(12px, 3vw, 16px);
 
             border-radius: 999px;
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             font-size:
                 clamp(11px, 2.8vw, 13px);
 
             font-weight: 800;
-        }
 
+            white-space: nowrap;
+        }
 
         .online-dot {
             width: 8px;
@@ -433,13 +355,11 @@
 
             border-radius: 50%;
 
-            background:
-                #4bd68b;
+            background: #4bd68b;
 
             box-shadow:
                 0 0 0 4px rgba(75, 214, 139, .12);
         }
-
 
         .theme-button {
             width:
@@ -456,8 +376,7 @@
 
             border-radius: 50%;
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             cursor: pointer;
 
@@ -465,18 +384,16 @@
                 clamp(14px, 3.5vw, 17px);
 
             transition:
-                transform .16s ease;
+                transform .15s ease;
         }
-
 
         .theme-button:active {
             transform: scale(.94);
         }
 
-
-        /* =========================================================
+        /* =========================
        HERO
-    ========================================================= */
+    ========================= */
 
         .hero {
             position: relative;
@@ -486,7 +403,6 @@
             width: 100%;
 
             padding:
-
                 clamp(24px, 6vw, 40px) clamp(15px, 4vw, 30px);
 
             border-radius:
@@ -503,19 +419,18 @@
                 1px solid var(--glass-border);
 
             backdrop-filter:
-                blur(18px);
+                blur(12px);
 
             -webkit-backdrop-filter:
-                blur(18px);
+                blur(12px);
 
             box-shadow:
                 var(--shadow);
         }
 
-
-        /* =========================================================
+        /* =========================
        LOGO
-    ========================================================= */
+    ========================= */
 
         .logo-shell {
             position: relative;
@@ -526,10 +441,8 @@
             aspect-ratio: 1;
 
             margin:
-
                 0 auto clamp(16px, 4vw, 22px);
         }
-
 
         .logo-ring {
             position: absolute;
@@ -552,7 +465,6 @@
             will-change: transform;
         }
 
-
         .logo-ring::after {
             content: "";
 
@@ -566,14 +478,11 @@
                 var(--bg-1);
         }
 
-
         @keyframes slowRing {
             to {
-                transform:
-                    rotate(360deg);
+                transform: rotate(360deg);
             }
         }
-
 
         .logo {
             position: relative;
@@ -589,8 +498,7 @@
 
             border-radius: 50%;
 
-            background:
-                #fffaf7;
+            background: #fffaf7;
 
             box-shadow:
                 0 14px 34px rgba(189, 100, 127, .14);
@@ -601,7 +509,6 @@
             will-change: transform;
         }
 
-
         .logo img {
             width: 100%;
             height: 100%;
@@ -611,7 +518,6 @@
             border-radius: 50%;
         }
 
-
         @keyframes logoBreath {
 
             0%,
@@ -620,17 +526,15 @@
                     translateZ(0) scale(1);
             }
 
-
             50% {
                 transform:
                     translateZ(0) scale(1.025);
             }
         }
 
-
-        /* =========================================================
-       HERO TYPOGRAPHY
-    ========================================================= */
+        /* =========================
+       HERO TEXT
+    ========================= */
 
         .eyebrow {
             display: flex;
@@ -646,8 +550,7 @@
             margin-bottom:
                 clamp(9px, 2.5vw, 14px);
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             font-size:
                 clamp(9px, 2.7vw, 12px);
@@ -658,7 +561,6 @@
 
             text-transform: uppercase;
         }
-
 
         .hero h1 {
             margin-bottom:
@@ -679,20 +581,16 @@
             letter-spacing:
                 -.038em;
 
-            color:
-                var(--text);
+            color: var(--text);
         }
-
 
         .tagline {
             width:
                 min(100%, 530px);
 
-            margin:
-                0 auto;
+            margin-inline: auto;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(12px, 3.5vw, 15px);
@@ -703,7 +601,6 @@
 
             text-wrap: balance;
         }
-
 
         .custom-chip {
             display: inline-flex;
@@ -720,13 +617,11 @@
                 clamp(17px, 4vw, 24px);
 
             padding:
-
                 clamp(9px, 2.3vw, 11px) clamp(14px, 4vw, 18px);
 
             border-radius: 999px;
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             background:
                 rgba(255, 255, 255, .15);
@@ -740,10 +635,9 @@
             font-weight: 800;
         }
 
-
-        /* =========================================================
-       TITLES
-    ========================================================= */
+        /* =========================
+       SECTION TITLES
+    ========================= */
 
         .section-title {
             position: relative;
@@ -751,11 +645,9 @@
             z-index: 10;
 
             margin:
-
                 clamp(21px, 5vw, 30px) 4px clamp(9px, 2vw, 12px);
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(12px, 3.2vw, 14px);
@@ -763,10 +655,9 @@
             font-weight: 800;
         }
 
-
-        /* =========================================================
+        /* =========================
        WHATSAPP
-    ========================================================= */
+    ========================= */
 
         .whatsapp-card {
             position: relative;
@@ -807,7 +698,6 @@
                 0 15px 34px rgba(37, 211, 102, .18);
         }
 
-
         .whatsapp-icon {
             width:
                 clamp(46px, 12vw, 56px);
@@ -831,13 +721,10 @@
                 clamp(24px, 6vw, 29px);
         }
 
-
         .whatsapp-copy {
             flex: 1;
-
             min-width: 0;
         }
-
 
         .whatsapp-copy strong {
             display: block;
@@ -852,7 +739,6 @@
             line-height: 1.25;
         }
 
-
         .whatsapp-copy span {
             display: block;
 
@@ -864,7 +750,6 @@
 
             line-height: 1.4;
         }
-
 
         .whatsapp-arrow {
             width:
@@ -885,10 +770,9 @@
                 rgba(255, 255, 255, .16);
         }
 
-
-        /* =========================================================
+        /* =========================
        SOCIAL
-    ========================================================= */
+    ========================= */
 
         .social-grid {
             position: relative;
@@ -898,13 +782,15 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3,
-                    minmax(0, 1fr));
+                repeat(3, minmax(0, 1fr));
 
             gap:
                 clamp(8px, 2.3vw, 13px);
-        }
 
+            content-visibility: auto;
+
+            contain-intrinsic-size: 150px;
+        }
 
         .social-card {
             min-width: 0;
@@ -913,7 +799,6 @@
                 clamp(108px, 29vw, 130px);
 
             padding:
-
                 clamp(12px, 3vw, 16px) clamp(7px, 2vw, 12px);
 
             display: flex;
@@ -928,8 +813,7 @@
 
             text-decoration: none;
 
-            color:
-                var(--text);
+            color: var(--text);
 
             border-radius:
                 clamp(20px, 5.5vw, 27px);
@@ -946,15 +830,12 @@
                 var(--shadow-soft);
 
             transition:
-                transform .16s ease;
+                transform .15s ease;
         }
-
 
         .social-card:active {
-            transform:
-                scale(.975);
+            transform: scale(.975);
         }
-
 
         .social-icon {
             width:
@@ -977,37 +858,29 @@
                 clamp(20px, 5vw, 24px);
         }
 
-
         .instagram .social-icon {
-            color:
-                #e84f92;
+            color: #e84f92;
 
             background:
                 rgba(255, 222, 237, .52);
         }
 
-
         .tiktok .social-icon {
-            color:
-                #111216;
+            color: #111216;
 
             background:
                 rgba(244, 244, 245, .55);
         }
 
-
         .facebook .social-icon {
-            color:
-                #1877f2;
+            color: #1877f2;
 
             background:
                 rgba(222, 237, 255, .58);
         }
 
-
         html[data-theme="dark"] .instagram .social-icon {
-            color:
-                #ff64a7;
+            color: #ff64a7;
 
             background:
                 linear-gradient(145deg,
@@ -1015,24 +888,19 @@
                     rgba(146, 44, 97, .10));
         }
 
-
         html[data-theme="dark"] .tiktok .social-icon {
-            color:
-                #ffffff;
+            color: #fff;
 
             background:
                 rgba(255, 255, 255, .08);
         }
 
-
         html[data-theme="dark"] .facebook .social-icon {
-            color:
-                #63a7ff;
+            color: #63a7ff;
 
             background:
                 rgba(52, 129, 250, .16);
         }
-
 
         .social-card strong {
             display: block;
@@ -1042,7 +910,6 @@
 
             font-weight: 800;
         }
-
 
         .social-card small {
             display: block;
@@ -1057,17 +924,15 @@
 
             text-overflow: ellipsis;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(8px, 2.2vw, 10px);
         }
 
-
-        /* =========================================================
+        /* =========================
        CONTACT
-    ========================================================= */
+    ========================= */
 
         .contact-grid {
             position: relative;
@@ -1078,8 +943,11 @@
 
             gap:
                 clamp(8px, 2vw, 11px);
-        }
 
+            content-visibility: auto;
+
+            contain-intrinsic-size: 160px;
+        }
 
         .contact-card {
             display: flex;
@@ -1095,7 +963,6 @@
                 clamp(64px, 17vw, 73px);
 
             padding:
-
                 clamp(10px, 3vw, 13px) clamp(12px, 3vw, 15px);
 
             border-radius:
@@ -1103,8 +970,7 @@
 
             text-decoration: none;
 
-            color:
-                var(--text);
+            color: var(--text);
 
             background:
                 linear-gradient(145deg,
@@ -1117,7 +983,6 @@
             box-shadow:
                 var(--shadow-soft);
         }
-
 
         .contact-icon {
             width:
@@ -1135,20 +1000,16 @@
             border-radius:
                 clamp(13px, 4vw, 16px);
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             background:
                 rgba(242, 140, 166, .11);
         }
 
-
         .contact-copy {
             flex: 1;
-
             min-width: 0;
         }
-
 
         .contact-copy strong {
             display: block;
@@ -1161,7 +1022,6 @@
             font-weight: 800;
         }
 
-
         .contact-copy span {
             display: block;
 
@@ -1171,17 +1031,15 @@
 
             text-overflow: ellipsis;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(9px, 2.7vw, 11px);
         }
 
-
-        /* =========================================================
+        /* =========================
        ACTIONS
-    ========================================================= */
+    ========================= */
 
         .actions {
             position: relative;
@@ -1198,8 +1056,11 @@
 
             margin-top:
                 clamp(10px, 3vw, 13px);
-        }
 
+            content-visibility: auto;
+
+            contain-intrinsic-size: 70px;
+        }
 
         .action {
             min-height:
@@ -1224,7 +1085,6 @@
             font-weight: 800;
         }
 
-
         .save-contact {
             border: 0;
 
@@ -1239,10 +1099,8 @@
                 0 12px 28px rgba(214, 111, 139, .18);
         }
 
-
         .share-button {
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             border:
                 1px solid var(--glass-border);
@@ -1253,10 +1111,9 @@
                     var(--glass-2));
         }
 
-
-        /* =========================================================
+        /* =========================
        NOTE
-    ========================================================= */
+    ========================= */
 
         .note {
             position: relative;
@@ -1284,8 +1141,11 @@
 
             box-shadow:
                 var(--shadow-soft);
-        }
 
+            content-visibility: auto;
+
+            contain-intrinsic-size: 160px;
+        }
 
         .note strong {
             display: block;
@@ -1304,15 +1164,13 @@
             font-weight: 700;
         }
 
-
         .note p {
             width:
                 min(100%, 520px);
 
             margin-inline: auto;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(10px, 2.9vw, 12px);
@@ -1320,53 +1178,40 @@
             line-height: 1.65;
         }
 
-
         footer {
             position: relative;
 
             z-index: 10;
 
             padding:
-
                 clamp(22px, 5vw, 30px) 0 4px;
 
             text-align: center;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(9px, 2.5vw, 11px);
 
             line-height: 1.8;
-        }
 
+            content-visibility: auto;
+
+            contain-intrinsic-size: 100px;
+        }
 
         footer strong {
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
         }
 
-
-        /* =========================================================
-       PETALS NEED TO APPEAR OVER COMPONENTS
-       BUT TEXT/CONTROLS STILL NEED TO LOOK CLEAR.
-
-       The overlay z-index is 500.
-       UI remains clickable because overlay has pointer-events:none.
-    ========================================================= */
-
-
-        /* =========================================================
-       VERY SMALL PHONES
-    ========================================================= */
+        /* =========================
+       SMALL PHONES
+    ========================= */
 
         @media (max-width: 350px) {
-
             .social-grid {
                 grid-template-columns: 1fr;
             }
-
 
             .social-card {
                 min-height: 84px;
@@ -1380,35 +1225,29 @@
                 text-align: left;
             }
 
-
             .social-icon {
                 margin-bottom: 0;
             }
-
 
             .actions {
                 grid-template-columns: 1fr;
             }
         }
 
-
-        /* =========================================================
+        /* =========================
        TABLET
-    ========================================================= */
+    ========================= */
 
         @media (min-width: 700px) {
-
             .page {
                 padding-inline:
                     clamp(22px, 5vw, 42px);
             }
 
-
             .contact-grid {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
-
 
             .actions {
                 width:
@@ -1419,17 +1258,14 @@
             }
         }
 
-
-        /* =========================================================
+        /* =========================
        REDUCED MOTION
-    ========================================================= */
+    ========================= */
 
         @media (prefers-reduced-motion: reduce) {
-
             .petal-overlay {
                 display: none;
             }
-
 
             .logo,
             .logo-ring {
@@ -1439,58 +1275,29 @@
     </style>
 </head>
 
-
 <body>
-
-
-    <!-- =====================================================
-       BACKGROUND
-  ====================================================== -->
 
     <div class="background-grid"></div>
 
-
-    <!-- =====================================================
-       FRONT PETALS
-
-       These now fall ABOVE the glass cards.
-  ====================================================== -->
-
+    <!-- Petals appear ABOVE glass cards -->
     <div class="petal-overlay" id="petalOverlay" aria-hidden="true"></div>
 
-
-    <!-- =====================================================
-       PAGE
-  ====================================================== -->
-
     <main class="page">
-
-
-        <!-- HEADER -->
 
         <header class="topbar">
 
             <div class="brand-pill">
-
                 <span class="online-dot"></span>
-
                 Petal Moss
-
             </div>
 
-
             <button class="theme-button" id="themeButton" type="button" aria-label="Switch to dark mode">
-
                 <i id="themeIcon" class="fa-solid fa-moon"></i>
-
             </button>
 
         </header>
 
-
-        <!-- ==================================================
-         HERO
-    =================================================== -->
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -1498,75 +1305,51 @@
 
                 <div class="logo-ring"></div>
 
-
                 <div class="logo">
 
-                    <img id="brandLogo"
-                        src="https://drive.google.com/thumbnail?id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt&sz=w1000"
-                        alt="Petal Moss logo" loading="eager" decoding="async" fetchpriority="high" />
+                    <img src="./Logo.webp" alt="Petal Moss logo" width="300" height="300" loading="eager"
+                        decoding="async" fetchpriority="high" />
 
                 </div>
 
             </div>
 
-
             <div class="eyebrow">
-
                 <span>✦</span>
-
                 Handmade creations
-
                 <span>✦</span>
-
             </div>
-
 
             <h1>
                 Petal Moss
             </h1>
 
-
             <p class="tagline">
-
                 Beautiful handmade floral creations,
                 bouquets and personalized gifts made
                 for your special moments.
-
             </p>
 
-
             <div class="custom-chip">
-
                 <span>✨</span>
-
                 Custom orders available
-
             </div>
 
         </section>
 
-
-        <!-- ==================================================
-         WHATSAPP
-    =================================================== -->
+        <!-- WHATSAPP -->
 
         <div class="section-title">
-
             Let's create something beautiful
-
         </div>
-
 
         <a class="whatsapp-card"
             href="https://wa.me/94788889853?text=Hi%20Petal%20Moss%20%F0%9F%8C%B8%20I%27d%20like%20to%20place%20an%20order."
             target="_blank" rel="noopener noreferrer">
 
             <div class="whatsapp-icon">
-
                 <i class="fa-brands fa-whatsapp"></i>
-
             </div>
-
 
             <div class="whatsapp-copy">
 
@@ -1580,62 +1363,43 @@
 
             </div>
 
-
             <div class="whatsapp-arrow">
-
                 <i class="fa-solid fa-arrow-right"></i>
-
             </div>
 
         </a>
 
-
-        <!-- ==================================================
-         SOCIALS
-    =================================================== -->
+        <!-- SOCIALS -->
 
         <div class="section-title">
-
             Follow our creations
-
         </div>
 
-
         <section class="social-grid">
-
 
             <a class="social-card instagram" href="https://instagram.com/petalmoss_collection" target="_blank"
                 rel="noopener noreferrer">
 
                 <div class="social-icon">
-
                     <i class="fa-brands fa-instagram"></i>
-
                 </div>
 
-                <strong>
-                    Instagram
-                </strong>
+                <strong>Instagram</strong>
 
                 <small>
                     @petalmoss_collection
                 </small>
 
             </a>
-
 
             <a class="social-card tiktok" href="https://www.tiktok.com/@petalmoss_collection" target="_blank"
                 rel="noopener noreferrer">
 
                 <div class="social-icon">
-
                     <i class="fa-brands fa-tiktok"></i>
-
                 </div>
 
-                <strong>
-                    TikTok
-                </strong>
+                <strong>TikTok</strong>
 
                 <small>
                     @petalmoss_collection
@@ -1643,19 +1407,14 @@
 
             </a>
 
-
             <a class="social-card facebook" href="https://www.facebook.com/profile.php?id=61590887205588"
                 target="_blank" rel="noopener noreferrer">
 
                 <div class="social-icon">
-
                     <i class="fa-brands fa-facebook-f"></i>
-
                 </div>
 
-                <strong>
-                    Facebook
-                </strong>
+                <strong>Facebook</strong>
 
                 <small>
                     Petal Moss
@@ -1663,32 +1422,21 @@
 
             </a>
 
-
         </section>
 
-
-        <!-- ==================================================
-         CONTACT
-    =================================================== -->
+        <!-- CONTACT -->
 
         <div class="section-title">
-
             Contact Petal Moss
-
         </div>
 
-
         <section class="contact-grid">
-
 
             <a class="contact-card" href="mailto:petalmosscollection@gmail.com">
 
                 <div class="contact-icon">
-
                     <i class="fa-regular fa-envelope"></i>
-
                 </div>
-
 
                 <div class="contact-copy">
 
@@ -1704,15 +1452,11 @@
 
             </a>
 
-
             <a class="contact-card" href="tel:+94788889853">
 
                 <div class="contact-icon">
-
                     <i class="fa-solid fa-phone"></i>
-
                 </div>
-
 
                 <div class="contact-copy">
 
@@ -1728,69 +1472,42 @@
 
             </a>
 
-
         </section>
 
-
-        <!-- ==================================================
-         BUTTONS
-    =================================================== -->
+        <!-- ACTIONS -->
 
         <div class="actions">
 
-
             <button class="action save-contact" onclick="saveContact()">
-
                 <i class="fa-regular fa-address-card"></i>
-
                 Save Contact
-
             </button>
-
 
             <button class="action share-button" onclick="shareProfile()">
-
                 <i class="fa-solid fa-share-nodes"></i>
-
                 Share
-
             </button>
-
 
         </div>
 
-
-        <!-- ==================================================
-         NOTE
-    =================================================== -->
+        <!-- NOTE -->
 
         <section class="note">
 
-            <div>
-                🌷
-            </div>
-
+            <div>🌷</div>
 
             <strong>
                 Made specially for you
             </strong>
 
-
             <p>
-
                 Choose your colours, flowers,
                 wrapping style and arrangement.
                 Message us to create a personalized
                 Petal Moss piece for your special occasion.
-
             </p>
 
         </section>
-
-
-        <!-- ==================================================
-         FOOTER
-    =================================================== -->
 
         <footer>
 
@@ -1808,284 +1525,134 @@
 
         </footer>
 
-
     </main>
 
-
     <script>
-
-        /* =====================================================
-           BUSINESS
-        ====================================================== */
+        /* =========================
+           BUSINESS INFO
+        ========================= */
 
         const BUSINESS = {
-
-            name:
-                "Petal Moss",
-
-            phone:
-                "+94788889853",
-
-            email:
-                "petalmosscollection@gmail.com",
-
-            instagram:
-                "https://instagram.com/petalmoss_collection",
-
-            tiktok:
-                "https://www.tiktok.com/@petalmoss_collection",
-
-            facebook:
-                "https://www.facebook.com/profile.php?id=61590887205588"
-
+            name: "Petal Moss",
+            phone: "+94788889853",
+            email: "petalmosscollection@gmail.com",
+            instagram: "https://instagram.com/petalmoss_collection",
+            tiktok: "https://www.tiktok.com/@petalmoss_collection",
+            facebook: "https://www.facebook.com/profile.php?id=61590887205588"
         };
 
-
-        /* =====================================================
+        /* =========================
            THEME
-    
-           Always light when page is freshly loaded.
-           No localStorage.
-        ====================================================== */
+           Always starts in LIGHT
+        ========================= */
 
         const root =
             document.documentElement;
-
 
         const themeButton =
             document.getElementById(
                 "themeButton"
             );
 
-
         const themeIcon =
             document.getElementById(
                 "themeIcon"
             );
-
 
         const themeMeta =
             document.getElementById(
                 "themeMeta"
             );
 
-
-        let theme =
+        let currentTheme =
             "light";
 
+        function setTheme(theme) {
 
-        function applyTheme(
-            nextTheme
-        ) {
-
-            theme =
-                nextTheme;
-
+            currentTheme =
+                theme;
 
             root.setAttribute(
                 "data-theme",
-                nextTheme
+                theme
             );
 
-
             const dark =
-                nextTheme === "dark";
-
+                theme === "dark";
 
             themeIcon.className =
                 dark
                     ? "fa-solid fa-sun"
                     : "fa-solid fa-moon";
 
-
             themeButton.setAttribute(
-
                 "aria-label",
-
                 dark
                     ? "Switch to light mode"
                     : "Switch to dark mode"
-
             );
 
-
             themeMeta.setAttribute(
-
                 "content",
-
                 dark
                     ? "#0d0a12"
                     : "#fff8fb"
-
             );
-
         }
 
-
-        /*
-          IMPORTANT
-          Always start light.
-        */
-
-        applyTheme(
-            "light"
-        );
-
+        setTheme("light");
 
         themeButton.addEventListener(
-
             "click",
-
             () => {
 
-                applyTheme(
-
-                    theme === "light"
+                setTheme(
+                    currentTheme === "light"
                         ? "dark"
                         : "light"
-
                 );
 
             }
-
         );
 
-
-        /* =====================================================
-           LOGO
-    
-           Do NOT request /logo.png anymore.
-    
-           Primary Drive URL:
-           thumbnail endpoint.
-    
-           Fallback:
-           another Google Drive endpoint.
-    
-           Therefore your Vercel console will no longer
-           spam GET /logo.png 404.
-        ====================================================== */
-
-        const brandLogo =
-            document.getElementById(
-                "brandLogo"
-            );
-
-
-        const DRIVE_FALLBACK =
-            "https://drive.google.com/uc?export=view&id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt";
-
-
-        brandLogo.addEventListener(
-
-            "error",
-
-            () => {
-
-                if (
-                    brandLogo.dataset.driveFallback
-                ) {
-
-                    /*
-                      Both Google Drive endpoints failed.
-                      Avoid an infinite error loop.
-                    */
-
-                    brandLogo.style.opacity =
-                        ".35";
-
-
-                    return;
-
-                }
-
-
-                brandLogo.dataset.driveFallback =
-                    "true";
-
-
-                brandLogo.src =
-                    DRIVE_FALLBACK;
-
-            }
-
-        );
-
-
-        /* =====================================================
+        /* =========================
            PETALS
     
-           PERFORMANCE DESIGN:
-           - created ONCE
-           - CSS-only animation afterwards
-           - no scroll listener
-           - no touch listener
-           - no repeating JS setTimeout
-           - no forced reflows
-           - no DOM insert/remove loop
-        ====================================================== */
+           Created once.
+           CSS handles animation.
+           No scroll listeners.
+           No repeating timers.
+        ========================= */
 
-        const petalOverlay =
+        const overlay =
             document.getElementById(
                 "petalOverlay"
             );
 
-
-        function rand(
-            min,
-            max
-        ) {
-
+        function random(min, max) {
             return (
                 Math.random() *
                 (max - min)
             ) + min;
-
         }
-
 
         function createPetals() {
 
-            /*
-              Small screens:
-              fewer petals for better performance.
-      
-              Larger phones/tablets:
-              slightly more.
-            */
-
-            const width =
+            const screenWidth =
                 window.innerWidth;
-
 
             let count;
 
-
-            if (
-                width < 360
-            ) {
-
-                count =
-                    16;
-
-            } else if (
-                width < 600
-            ) {
-
-                count =
-                    20;
-
+            if (screenWidth < 360) {
+                count = 10;
+            } else if (screenWidth < 600) {
+                count = 14;
             } else {
-
-                count =
-                    24;
-
+                count = 18;
             }
-
 
             const fragment =
                 document.createDocumentFragment();
-
 
             for (
                 let i = 0;
@@ -2098,188 +1665,95 @@
                         "span"
                     );
 
-
                 petal.className =
                     "petal";
 
-
-                /*
-                  A few petals are softly blurred
-                  to give foreground/background depth.
-                */
-
-                if (
-                    Math.random() > .78
-                ) {
-
-                    petal.classList.add(
-                        "blur"
-                    );
-
-                }
-
-
                 const size =
-                    rand(
+                    random(
                         6,
-                        12
+                        11
                     );
-
 
                 const duration =
-                    rand(
-                        10.5,
-                        17.5
+                    random(
+                        10,
+                        17
                     );
-
-
-                /*
-                  Negative delay means petals
-                  are already distributed vertically
-                  when page first opens.
-                */
-
-                const delay =
-                    -rand(
-                        0,
-                        duration
-                    );
-
 
                 petal.style.setProperty(
-
                     "--left",
-
-                    `${rand(1, 99)}%`
-
+                    `${random(1, 99)}%`
                 );
 
-
                 petal.style.setProperty(
-
                     "--size",
-
                     `${size}px`
-
                 );
 
-
                 petal.style.setProperty(
-
                     "--opacity",
-
-                    rand(
-                        .20,
-                        .50
+                    random(
+                        .18,
+                        .43
                     )
-
                 );
 
-
                 petal.style.setProperty(
-
                     "--duration",
-
                     `${duration}s`
-
                 );
 
-
                 petal.style.setProperty(
-
                     "--delay",
-
-                    `${delay}s`
-
+                    `${-random(0, duration)}s`
                 );
 
-
                 petal.style.setProperty(
-
-                    "--start-rotation",
-
-                    `${rand(-130, 130)}deg`
-
+                    "--rotation",
+                    `${random(-130, 130)}deg`
                 );
 
-
-                /*
-                  Each petal follows
-                  a different horizontal path.
-                */
-
                 petal.style.setProperty(
-
                     "--x1",
-
-                    `${rand(-28, 28)}px`
-
+                    `${random(-25, 25)}px`
                 );
 
-
                 petal.style.setProperty(
-
                     "--x2",
-
-                    `${rand(-45, 45)}px`
-
+                    `${random(-40, 40)}px`
                 );
 
-
                 petal.style.setProperty(
-
                     "--x3",
-
-                    `${rand(-34, 34)}px`
-
+                    `${random(-30, 30)}px`
                 );
-
 
                 petal.style.setProperty(
-
                     "--x4",
-
-                    `${rand(-22, 22)}px`
-
+                    `${random(-20, 20)}px`
                 );
-
 
                 fragment.appendChild(
                     petal
                 );
-
             }
 
-
-            petalOverlay.appendChild(
+            overlay.appendChild(
                 fragment
             );
-
         }
-
-
-        /*
-          Respect accessibility preference.
-        */
-
-        const reducedMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            );
-
 
         if (
-            !reducedMotion.matches
+            !window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
         ) {
-
             createPetals();
-
         }
 
-
-        /* =====================================================
+        /* =========================
            SAVE CONTACT
-        ====================================================== */
+        ========================= */
 
         function saveContact() {
 
@@ -2297,79 +1771,59 @@ X-SOCIALPROFILE;TYPE=tiktok:${BUSINESS.tiktok}
 NOTE:Handmade floral creations, bouquets and customized gifts.
 END:VCARD`;
 
-
             const blob =
                 new Blob(
-
-                    [
-                        vcard
-                    ],
-
+                    [vcard],
                     {
                         type:
                             "text/vcard;charset=utf-8"
                     }
-
                 );
-
 
             const url =
                 URL.createObjectURL(
                     blob
                 );
 
-
             const anchor =
                 document.createElement(
                     "a"
                 );
 
-
             anchor.href =
                 url;
 
-
             anchor.download =
                 "Petal-Moss-Contact.vcf";
-
 
             document.body.appendChild(
                 anchor
             );
 
-
             anchor.click();
 
-
             anchor.remove();
-
 
             URL.revokeObjectURL(
                 url
             );
-
         }
 
-
-        /* =====================================================
+        /* =========================
            SHARE
-        ====================================================== */
+        ========================= */
 
         async function shareProfile() {
 
             const data = {
-
-                title:
-                    "Petal Moss",
+                title: "Petal Moss",
 
                 text:
                     "Connect with Petal Moss 🌸 Handmade floral creations and customized gifts.",
 
                 url:
                     window.location.href
-
             };
-
 
             try {
 
@@ -2388,19 +1842,12 @@ END:VCARD`;
                     await navigator.clipboard.writeText(
                         window.location.href
                     );
-
                 }
 
             } catch {
-
-                /*
-                  User closing native share is normal.
-                */
-
+                // User closing the native share dialog is normal.
             }
-
         }
-
     </script>
 
 </body>
