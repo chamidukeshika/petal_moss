@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
     <meta name="description"
         content="Connect with Petal Moss — handmade floral creations, bouquets and customized gifts." />
@@ -13,7 +13,18 @@
 
     <title>Petal Moss | Connect With Us</title>
 
-    <!-- Fonts -->
+    <!-- =====================================================
+       FAVICON
+       Embedded directly -> no /favicon.ico 404 request
+  ====================================================== -->
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23fff1f5'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='38'%3E🌸%3C/text%3E%3C/svg%3E" />
+
+    <!-- =====================================================
+       FONTS
+  ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -21,71 +32,104 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-    <!-- Font Awesome -->
+    <!-- =====================================================
+       ICONS
+  ====================================================== -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <style>
+        /* =========================================================
+       LIGHT THEME — DEFAULT
+    ========================================================= */
+
         :root {
-            --bg-main: #fff8fb;
-            --bg-mid: #fff4f8;
-            --bg-end: #fffafd;
+            --bg-1: #fff9fb;
+            --bg-2: #fff4f8;
+            --bg-3: #fffafd;
 
             --text: #292428;
-            --text-soft: #776b70;
+            --text-soft: #766b70;
 
-            --pink: #f28ca6;
+            --pink: #ef8aa5;
             --pink-dark: #d96d89;
 
-            --glass-1: rgba(255, 255, 255, .44);
-            --glass-2: rgba(255, 255, 255, .22);
-            --glass-border: rgba(255, 255, 255, .62);
+            --glass-1: rgba(255, 255, 255, .48);
+            --glass-2: rgba(255, 255, 255, .24);
 
-            --shadow: 0 16px 40px rgba(137, 82, 101, .09);
-            --shadow-soft: 0 10px 26px rgba(121, 75, 88, .06);
+            --glass-border: rgba(255, 255, 255, .66);
 
-            --petal-1: rgba(255, 156, 190, .70);
-            --petal-2: rgba(255, 222, 234, .30);
+            --shadow:
+                0 16px 42px rgba(137, 82, 101, .09);
+
+            --shadow-soft:
+                0 10px 25px rgba(121, 75, 88, .06);
+
+            --petal-a: rgba(244, 111, 157, .52);
+            --petal-b: rgba(255, 204, 224, .25);
         }
 
-        html[data-theme="dark"] {
-            --bg-main: #0d0b12;
-            --bg-mid: #16101d;
-            --bg-end: #09080e;
 
-            --text: #faf6f9;
-            --text-soft: #bdb2ba;
+        /* =========================================================
+       DARK THEME
+    ========================================================= */
+
+        html[data-theme="dark"] {
+            --bg-1: #0d0a12;
+            --bg-2: #16101d;
+            --bg-3: #09080e;
+
+            --text: #faf7f9;
+            --text-soft: #bcb1b8;
 
             --pink: #ff8eac;
             --pink-dark: #ff7d9e;
 
             --glass-1: rgba(255, 255, 255, .09);
             --glass-2: rgba(255, 255, 255, .035);
-            --glass-border: rgba(255, 255, 255, .14);
 
-            --shadow: 0 20px 55px rgba(0, 0, 0, .32);
-            --shadow-soft: 0 12px 30px rgba(0, 0, 0, .22);
+            --glass-border: rgba(255, 255, 255, .15);
 
-            --petal-1: rgba(255, 111, 159, .72);
-            --petal-2: rgba(212, 156, 255, .22);
+            --shadow:
+                0 20px 55px rgba(0, 0, 0, .32);
+
+            --shadow-soft:
+                0 12px 30px rgba(0, 0, 0, .23);
+
+            --petal-a: rgba(255, 100, 151, .56);
+            --petal-b: rgba(207, 153, 255, .20);
         }
 
-        * {
+
+        /* =========================================================
+       RESET
+    ========================================================= */
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         html {
-            scroll-behavior: smooth;
             color-scheme: light;
+            scroll-behavior: smooth;
+            background: var(--bg-1);
         }
+
 
         html[data-theme="dark"] {
             color-scheme: dark;
         }
 
+
         body {
-            min-height: 100vh;
+            min-height: 100dvh;
+
+            margin: 0;
 
             font-family:
                 "DM Sans",
@@ -97,223 +141,356 @@
             color: var(--text);
 
             background:
-                radial-gradient(circle at 12% 8%,
-                    rgba(255, 206, 224, .42),
+                radial-gradient(circle at 8% 5%,
+                    rgba(255, 196, 217, .35),
                     transparent 28%),
-                radial-gradient(circle at 88% 18%,
-                    rgba(225, 212, 255, .34),
+                radial-gradient(circle at 92% 17%,
+                    rgba(220, 207, 255, .30),
+                    transparent 30%),
+                radial-gradient(circle at 18% 88%,
+                    rgba(255, 225, 207, .22),
                     transparent 30%),
                 linear-gradient(145deg,
-                    var(--bg-main),
-                    var(--bg-mid) 45%,
-                    var(--bg-end));
+                    var(--bg-1),
+                    var(--bg-2) 48%,
+                    var(--bg-3));
 
             overflow-x: hidden;
+
             -webkit-overflow-scrolling: touch;
 
-            transition:
-                background .35s ease,
-                color .3s ease;
+            overscroll-behavior-y: auto;
 
             -webkit-font-smoothing: antialiased;
+
             text-rendering: optimizeLegibility;
+
+            transition:
+                background .32s ease,
+                color .25s ease;
         }
 
-        a,
-        button {
+
+        button,
+        a {
             -webkit-tap-highlight-color: transparent;
         }
+
 
         button {
             font: inherit;
         }
 
-        .page-shell {
-            width: min(100%, 820px);
-            margin: 0 auto;
 
-            padding-inline:
-                max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-right));
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        .app {
-            width: 100%;
-            min-height: 100vh;
+
+        /* =========================================================
+       MAIN WIDTH
+    ========================================================= */
+
+        .page {
+            width: min(100%, 820px);
+
+            margin-inline: auto;
 
             padding:
-                max(16px, env(safe-area-inset-top)) clamp(10px, 3vw, 24px) max(32px, env(safe-area-inset-bottom));
+
+                max(16px,
+                    env(safe-area-inset-top)) max(12px,
+                    env(safe-area-inset-right)) max(32px,
+                    env(safe-area-inset-bottom)) max(12px,
+                    env(safe-area-inset-left));
         }
 
-        /* =====================================================
-       BACKGROUND PETALS
-    ===================================================== */
 
-        .petal-field {
+        /* =========================================================
+       SUBTLE BACKGROUND GRID
+    ========================================================= */
+
+        .background-grid {
             position: fixed;
+
             inset: 0;
 
-            z-index: -1;
+            z-index: -5;
 
-            overflow: hidden;
             pointer-events: none;
+
+            opacity: .32;
+
+            background-image:
+
+                linear-gradient(rgba(216, 126, 155, .07) 1px,
+                    transparent 1px),
+
+                linear-gradient(90deg,
+                    rgba(216, 126, 155, .07) 1px,
+                    transparent 1px);
+
+            background-size:
+                36px 36px;
         }
 
-        .bg-petal {
-            position: absolute;
-            top: -30px;
 
-            width: var(--w);
-            height: var(--h);
+        html[data-theme="dark"] .background-grid {
+            opacity: .4;
+
+            background-image:
+
+                linear-gradient(rgba(255, 255, 255, .035) 1px,
+                    transparent 1px),
+
+                linear-gradient(90deg,
+                    rgba(255, 255, 255, .035) 1px,
+                    transparent 1px);
+        }
+
+
+        /* =========================================================
+       GLOBAL PETAL OVERLAY
+
+       IMPORTANT:
+       z-index is HIGHER than cards.
+       pointer-events:none means links/buttons still work.
+    ========================================================= */
+
+        .petal-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 500;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            contain: strict;
+        }
+
+
+        .petal {
+            position: absolute;
+
+            top: -40px;
 
             left: var(--left);
 
-            border-radius: 75% 25% 70% 30%;
+            width: var(--size);
 
-            background:
-                linear-gradient(145deg,
-                    var(--petal-1),
-                    var(--petal-2));
+            height:
+                calc(var(--size) * 1.45);
 
             opacity: var(--opacity);
 
+            border-radius:
+                75% 25% 70% 30%;
+
+            background:
+                linear-gradient(145deg,
+                    var(--petal-a),
+                    var(--petal-b));
+
+            transform:
+                translate3d(0, -50px, 0) rotate(var(--start-rotation));
+
             animation:
-                bgPetalFall var(--duration) linear infinite;
+                petalFall var(--duration) linear infinite;
 
             animation-delay:
                 var(--delay);
 
             will-change: transform;
+
+            backface-visibility: hidden;
+
+            transform-style: preserve-3d;
         }
 
-        @keyframes bgPetalFall {
+
+        .petal.blur {
+            filter: blur(.45px);
+        }
+
+
+        @keyframes petalFall {
+
             0% {
                 transform:
-                    translate3d(0, -40px, 0) rotate(0deg);
+                    translate3d(0,
+                        -60px,
+                        0) rotate(var(--start-rotation));
             }
 
-            25% {
+
+            20% {
                 transform:
-                    translate3d(var(--drift1), 28vh, 0) rotate(90deg);
+                    translate3d(var(--x1),
+                        22vh,
+                        0) rotate(calc(var(--start-rotation) + 85deg));
             }
 
-            50% {
+
+            42% {
                 transform:
-                    translate3d(var(--drift2), 55vh, 0) rotate(180deg);
+                    translate3d(var(--x2),
+                        46vh,
+                        0) rotate(calc(var(--start-rotation) + 175deg));
             }
 
-            75% {
+
+            67% {
                 transform:
-                    translate3d(var(--drift3), 82vh, 0) rotate(270deg);
+                    translate3d(var(--x3),
+                        72vh,
+                        0) rotate(calc(var(--start-rotation) + 275deg));
             }
+
 
             100% {
                 transform:
-                    translate3d(var(--drift4), 112vh, 0) rotate(360deg);
+                    translate3d(var(--x4),
+                        112vh,
+                        0) rotate(calc(var(--start-rotation) + 430deg));
             }
         }
 
-        /* =====================================================
-       TOP BAR
-    ===================================================== */
+
+        /* =========================================================
+       HEADER
+    ========================================================= */
 
         .topbar {
+            position: relative;
+
+            z-index: 20;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 12px;
 
             margin-bottom:
-                clamp(14px, 3vw, 20px);
+                clamp(14px, 3vw, 21px);
         }
+
 
         .brand-pill,
         .theme-button {
-            border: 1px solid var(--glass-border);
-
             background:
                 linear-gradient(145deg,
                     var(--glass-1),
                     var(--glass-2));
 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            border:
+                1px solid var(--glass-border);
+
+            backdrop-filter: blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
 
             box-shadow:
-                0 8px 22px rgba(0, 0, 0, .05);
+                0 8px 20px rgba(0, 0, 0, .045);
         }
+
 
         .brand-pill {
             display: inline-flex;
+
             align-items: center;
 
             gap: 9px;
 
             padding:
-                clamp(8px, 2vw, 11px) clamp(12px, 3vw, 16px);
+
+                clamp(8px, 2.2vw, 11px) clamp(12px, 3vw, 16px);
 
             border-radius: 999px;
 
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
 
             font-size:
-                clamp(11px, 2.9vw, 13px);
+                clamp(11px, 2.8vw, 13px);
 
             font-weight: 800;
         }
 
-        .online {
+
+        .online-dot {
             width: 8px;
             height: 8px;
 
+            flex-shrink: 0;
+
             border-radius: 50%;
 
-            background: #49d68b;
+            background:
+                #4bd68b;
 
             box-shadow:
-                0 0 0 4px rgba(73, 214, 139, .12);
+                0 0 0 4px rgba(75, 214, 139, .12);
         }
+
 
         .theme-button {
             width:
-                clamp(40px, 10vw, 46px);
+                clamp(40px, 9.5vw, 46px);
 
             height:
-                clamp(40px, 10vw, 46px);
+                clamp(40px, 9.5vw, 46px);
 
             flex-shrink: 0;
 
             display: grid;
+
             place-items: center;
 
             border-radius: 50%;
 
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
 
             cursor: pointer;
 
             font-size:
                 clamp(14px, 3.5vw, 17px);
 
-            transition: transform .18s ease;
+            transition:
+                transform .16s ease;
         }
+
 
         .theme-button:active {
             transform: scale(.94);
         }
 
-        /* =====================================================
-       HERO
-    ===================================================== */
 
-        .profile {
+        /* =========================================================
+       HERO
+    ========================================================= */
+
+        .hero {
+            position: relative;
+
+            z-index: 10;
+
             width: 100%;
 
             padding:
-                clamp(24px, 6vw, 38px) clamp(15px, 4vw, 28px);
+
+                clamp(24px, 6vw, 40px) clamp(15px, 4vw, 30px);
 
             border-radius:
-                clamp(24px, 6vw, 36px);
+                clamp(25px, 6vw, 38px);
 
             text-align: center;
 
@@ -325,118 +502,152 @@
             border:
                 1px solid var(--glass-border);
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
 
             box-shadow:
                 var(--shadow);
         }
 
+
+        /* =========================================================
+       LOGO
+    ========================================================= */
+
         .logo-shell {
             position: relative;
 
             width:
-                clamp(108px, 29vw, 145px);
+                clamp(108px, 28vw, 145px);
 
             aspect-ratio: 1;
 
             margin:
+
                 0 auto clamp(16px, 4vw, 22px);
         }
 
+
         .logo-ring {
             position: absolute;
+
             inset: -7px;
 
             border-radius: 50%;
 
             background:
-                conic-gradient(#ffb6c9,
+                conic-gradient(#ffb5c8,
                     #d7c5ff,
-                    #ffd7b9,
-                    #ffb6c9);
+                    #ffd8b9,
+                    #ffb5c8);
 
             opacity: .55;
 
             animation:
-                ring 20s linear infinite;
+                slowRing 22s linear infinite;
+
+            will-change: transform;
         }
+
 
         .logo-ring::after {
             content: "";
 
             position: absolute;
+
             inset: 3px;
 
             border-radius: 50%;
 
-            background: var(--bg-main);
+            background:
+                var(--bg-1);
         }
 
-        @keyframes ring {
+
+        @keyframes slowRing {
             to {
-                transform: rotate(360deg);
+                transform:
+                    rotate(360deg);
             }
         }
+
 
         .logo {
             position: relative;
 
+            z-index: 2;
+
             width: 100%;
             height: 100%;
 
-            z-index: 2;
-
             padding: 6px;
+
+            overflow: hidden;
 
             border-radius: 50%;
 
-            background: rgba(255, 255, 255, .86);
+            background:
+                #fffaf7;
 
             box-shadow:
-                0 14px 34px rgba(189, 100, 127, .13);
+                0 14px 34px rgba(189, 100, 127, .14);
 
             animation:
-                logoPulse 5s ease-in-out infinite;
+                logoBreath 5s ease-in-out infinite;
+
+            will-change: transform;
         }
+
 
         .logo img {
             width: 100%;
             height: 100%;
 
-            display: block;
+            object-fit: cover;
 
             border-radius: 50%;
-
-            object-fit: cover;
         }
 
-        @keyframes logoPulse {
+
+        @keyframes logoBreath {
 
             0%,
             100% {
-                transform: scale(1);
+                transform:
+                    translateZ(0) scale(1);
             }
 
+
             50% {
-                transform: scale(1.025);
+                transform:
+                    translateZ(0) scale(1.025);
             }
         }
+
+
+        /* =========================================================
+       HERO TYPOGRAPHY
+    ========================================================= */
 
         .eyebrow {
             display: flex;
 
-            justify-content: center;
             align-items: center;
+
+            justify-content: center;
 
             flex-wrap: wrap;
 
             gap: 7px;
 
             margin-bottom:
-                clamp(9px, 2.5vw, 13px);
+                clamp(9px, 2.5vw, 14px);
 
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
 
             font-size:
                 clamp(9px, 2.7vw, 12px);
@@ -448,7 +659,8 @@
             text-transform: uppercase;
         }
 
-        .profile h1 {
+
+        .hero h1 {
             margin-bottom:
                 clamp(12px, 3vw, 18px);
 
@@ -458,23 +670,29 @@
                 serif;
 
             font-size:
-                clamp(44px, 13vw, 68px);
+                clamp(46px, 13vw, 70px);
 
             font-weight: 700;
 
-            line-height: .92;
+            line-height: .90;
 
-            letter-spacing: -.035em;
+            letter-spacing:
+                -.038em;
 
-            color: var(--text);
+            color:
+                var(--text);
         }
 
+
         .tagline {
-            width: min(100%, 530px);
+            width:
+                min(100%, 530px);
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
-            color: var(--text-soft);
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(12px, 3.5vw, 15px);
@@ -486,23 +704,29 @@
             text-wrap: balance;
         }
 
-        .order-chip {
+
+        .custom-chip {
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 8px;
+
+            max-width: 100%;
 
             margin-top:
                 clamp(17px, 4vw, 24px);
 
             padding:
+
                 clamp(9px, 2.3vw, 11px) clamp(14px, 4vw, 18px);
 
             border-radius: 999px;
 
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
 
             background:
                 rgba(255, 255, 255, .15);
@@ -516,15 +740,22 @@
             font-weight: 800;
         }
 
-        /* =====================================================
-       SECTION TITLE
-    ===================================================== */
+
+        /* =========================================================
+       TITLES
+    ========================================================= */
 
         .section-title {
+            position: relative;
+
+            z-index: 10;
+
             margin:
+
                 clamp(21px, 5vw, 30px) 4px clamp(9px, 2vw, 12px);
 
-            color: var(--text-soft);
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(12px, 3.2vw, 14px);
@@ -532,12 +763,18 @@
             font-weight: 800;
         }
 
-        /* =====================================================
-       WHATSAPP
-    ===================================================== */
 
-        .whatsapp {
+        /* =========================================================
+       WHATSAPP
+    ========================================================= */
+
+        .whatsapp-card {
+            position: relative;
+
+            z-index: 10;
+
             display: flex;
+
             align-items: center;
 
             width: 100%;
@@ -556,21 +793,22 @@
 
             text-decoration: none;
 
-            color: white;
+            color: #fff;
 
             background:
                 linear-gradient(135deg,
-                    #29d86d,
-                    #17b957);
+                    #28d66b,
+                    #18ba58);
 
             border:
-                1px solid rgba(255, 255, 255, .18);
+                1px solid rgba(255, 255, 255, .20);
 
             box-shadow:
-                0 16px 36px rgba(37, 211, 102, .18);
+                0 15px 34px rgba(37, 211, 102, .18);
         }
 
-        .wa-icon {
+
+        .whatsapp-icon {
             width:
                 clamp(46px, 12vw, 56px);
 
@@ -580,6 +818,7 @@
             flex-shrink: 0;
 
             display: grid;
+
             place-items: center;
 
             border-radius:
@@ -592,12 +831,15 @@
                 clamp(24px, 6vw, 29px);
         }
 
-        .wa-copy {
+
+        .whatsapp-copy {
             flex: 1;
+
             min-width: 0;
         }
 
-        .wa-copy strong {
+
+        .whatsapp-copy strong {
             display: block;
 
             margin-bottom: 4px;
@@ -610,7 +852,8 @@
             line-height: 1.25;
         }
 
-        .wa-copy span {
+
+        .whatsapp-copy span {
             display: block;
 
             color:
@@ -618,9 +861,12 @@
 
             font-size:
                 clamp(10px, 2.8vw, 12px);
+
+            line-height: 1.4;
         }
 
-        .wa-arrow {
+
+        .whatsapp-arrow {
             width:
                 clamp(30px, 8vw, 36px);
 
@@ -630,6 +876,7 @@
             flex-shrink: 0;
 
             display: grid;
+
             place-items: center;
 
             border-radius: 50%;
@@ -638,19 +885,26 @@
                 rgba(255, 255, 255, .16);
         }
 
-        /* =====================================================
-       SOCIALS
-    ===================================================== */
+
+        /* =========================================================
+       SOCIAL
+    ========================================================= */
 
         .social-grid {
+            position: relative;
+
+            z-index: 10;
+
             display: grid;
 
             grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+                repeat(3,
+                    minmax(0, 1fr));
 
             gap:
                 clamp(8px, 2.3vw, 13px);
         }
+
 
         .social-card {
             min-width: 0;
@@ -659,6 +913,7 @@
                 clamp(108px, 29vw, 130px);
 
             padding:
+
                 clamp(12px, 3vw, 16px) clamp(7px, 2vw, 12px);
 
             display: flex;
@@ -666,13 +921,15 @@
             flex-direction: column;
 
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
 
             text-decoration: none;
 
-            color: var(--text);
+            color:
+                var(--text);
 
             border-radius:
                 clamp(20px, 5.5vw, 27px);
@@ -689,12 +946,15 @@
                 var(--shadow-soft);
 
             transition:
-                transform .18s ease;
+                transform .16s ease;
         }
 
+
         .social-card:active {
-            transform: scale(.97);
+            transform:
+                scale(.975);
         }
+
 
         .social-icon {
             width:
@@ -704,6 +964,7 @@
                 clamp(43px, 11vw, 52px);
 
             display: grid;
+
             place-items: center;
 
             margin-bottom:
@@ -716,41 +977,62 @@
                 clamp(20px, 5vw, 24px);
         }
 
+
         .instagram .social-icon {
-            color: #e94d92;
+            color:
+                #e84f92;
+
             background:
-                rgba(255, 224, 238, .50);
+                rgba(255, 222, 237, .52);
         }
+
 
         .tiktok .social-icon {
-            color: var(--text);
+            color:
+                #111216;
+
             background:
-                rgba(245, 245, 245, .28);
+                rgba(244, 244, 245, .55);
         }
+
 
         .facebook .social-icon {
-            color: #1877f2;
+            color:
+                #1877f2;
+
             background:
-                rgba(222, 237, 255, .52);
+                rgba(222, 237, 255, .58);
         }
+
 
         html[data-theme="dark"] .instagram .social-icon {
-            color: #ff63a6;
+            color:
+                #ff64a7;
+
             background:
-                rgba(255, 81, 148, .17);
+                linear-gradient(145deg,
+                    rgba(255, 79, 147, .20),
+                    rgba(146, 44, 97, .10));
         }
 
+
         html[data-theme="dark"] .tiktok .social-icon {
-            color: white;
+            color:
+                #ffffff;
+
             background:
                 rgba(255, 255, 255, .08);
         }
 
+
         html[data-theme="dark"] .facebook .social-icon {
-            color: #61a8ff;
+            color:
+                #63a7ff;
+
             background:
-                rgba(61, 137, 255, .16);
+                rgba(52, 129, 250, .16);
         }
+
 
         .social-card strong {
             display: block;
@@ -761,6 +1043,7 @@
             font-weight: 800;
         }
 
+
         .social-card small {
             display: block;
 
@@ -770,29 +1053,37 @@
 
             overflow: hidden;
 
-            text-overflow: ellipsis;
-
             white-space: nowrap;
 
-            color: var(--text-soft);
+            text-overflow: ellipsis;
+
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(8px, 2.2vw, 10px);
         }
 
-        /* =====================================================
-       CONTACT
-    ===================================================== */
 
-        .contact-stack {
+        /* =========================================================
+       CONTACT
+    ========================================================= */
+
+        .contact-grid {
+            position: relative;
+
+            z-index: 10;
+
             display: grid;
 
             gap:
                 clamp(8px, 2vw, 11px);
         }
 
+
         .contact-card {
             display: flex;
+
             align-items: center;
 
             width: 100%;
@@ -804,6 +1095,7 @@
                 clamp(64px, 17vw, 73px);
 
             padding:
+
                 clamp(10px, 3vw, 13px) clamp(12px, 3vw, 15px);
 
             border-radius:
@@ -811,7 +1103,8 @@
 
             text-decoration: none;
 
-            color: var(--text);
+            color:
+                var(--text);
 
             background:
                 linear-gradient(145deg,
@@ -825,6 +1118,7 @@
                 var(--shadow-soft);
         }
 
+
         .contact-icon {
             width:
                 clamp(40px, 10vw, 46px);
@@ -835,21 +1129,26 @@
             flex-shrink: 0;
 
             display: grid;
+
             place-items: center;
 
             border-radius:
                 clamp(13px, 4vw, 16px);
 
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
 
             background:
-                rgba(242, 140, 166, .10);
+                rgba(242, 140, 166, .11);
         }
+
 
         .contact-copy {
             flex: 1;
+
             min-width: 0;
         }
+
 
         .contact-copy strong {
             display: block;
@@ -862,26 +1161,33 @@
             font-weight: 800;
         }
 
+
         .contact-copy span {
             display: block;
 
             overflow: hidden;
 
-            text-overflow: ellipsis;
-
             white-space: nowrap;
 
-            color: var(--text-soft);
+            text-overflow: ellipsis;
+
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(9px, 2.7vw, 11px);
         }
 
-        /* =====================================================
+
+        /* =========================================================
        ACTIONS
-    ===================================================== */
+    ========================================================= */
 
         .actions {
+            position: relative;
+
+            z-index: 10;
+
             display: grid;
 
             grid-template-columns:
@@ -894,6 +1200,7 @@
                 clamp(10px, 3vw, 13px);
         }
 
+
         .action {
             min-height:
                 clamp(53px, 14vw, 61px);
@@ -901,6 +1208,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 8px;
@@ -916,22 +1224,25 @@
             font-weight: 800;
         }
 
-        .save {
-            color: white;
 
-            border: none;
+        .save-contact {
+            border: 0;
+
+            color: #fff;
 
             background:
                 linear-gradient(135deg,
-                    #ec8aa5,
-                    #ce6888);
+                    #ec8ba6,
+                    #cd6887);
 
             box-shadow:
                 0 12px 28px rgba(214, 111, 139, .18);
         }
 
-        .share {
-            color: var(--pink-dark);
+
+        .share-button {
+            color:
+                var(--pink-dark);
 
             border:
                 1px solid var(--glass-border);
@@ -942,11 +1253,16 @@
                     var(--glass-2));
         }
 
-        /* =====================================================
+
+        /* =========================================================
        NOTE
-    ===================================================== */
+    ========================================================= */
 
         .note {
+            position: relative;
+
+            z-index: 10;
+
             margin-top:
                 clamp(16px, 4vw, 21px);
 
@@ -970,10 +1286,12 @@
                 var(--shadow-soft);
         }
 
+
         .note strong {
             display: block;
 
-            margin: 5px 0 6px;
+            margin:
+                5px 0 6px;
 
             font-family:
                 "Cormorant Garamond",
@@ -986,13 +1304,15 @@
             font-weight: 700;
         }
 
+
         .note p {
             width:
                 min(100%, 520px);
 
-            margin: auto;
+            margin-inline: auto;
 
-            color: var(--text-soft);
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(10px, 2.9vw, 12px);
@@ -1000,13 +1320,20 @@
             line-height: 1.65;
         }
 
+
         footer {
+            position: relative;
+
+            z-index: 10;
+
             padding:
+
                 clamp(22px, 5vw, 30px) 0 4px;
 
             text-align: center;
 
-            color: var(--text-soft);
+            color:
+                var(--text-soft);
 
             font-size:
                 clamp(9px, 2.5vw, 11px);
@@ -1014,18 +1341,32 @@
             line-height: 1.8;
         }
 
+
         footer strong {
-            color: var(--pink-dark);
+            color:
+                var(--pink-dark);
         }
 
-        /* =====================================================
-       RESPONSIVE
-    ===================================================== */
+
+        /* =========================================================
+       PETALS NEED TO APPEAR OVER COMPONENTS
+       BUT TEXT/CONTROLS STILL NEED TO LOOK CLEAR.
+
+       The overlay z-index is 500.
+       UI remains clickable because overlay has pointer-events:none.
+    ========================================================= */
+
+
+        /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
 
         @media (max-width: 350px) {
+
             .social-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .social-card {
                 min-height: 84px;
@@ -1039,399 +1380,590 @@
                 text-align: left;
             }
 
+
             .social-icon {
                 margin-bottom: 0;
             }
+
 
             .actions {
                 grid-template-columns: 1fr;
             }
         }
 
+
+        /* =========================================================
+       TABLET
+    ========================================================= */
+
         @media (min-width: 700px) {
-            .app {
+
+            .page {
                 padding-inline:
-                    clamp(22px, 5vw, 40px);
+                    clamp(22px, 5vw, 42px);
             }
 
-            .contact-stack {
+
+            .contact-grid {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
 
+
             .actions {
-                width: min(560px, 100%);
-                margin: 14px auto 0;
+                width:
+                    min(560px, 100%);
+
+                margin:
+                    14px auto 0;
             }
         }
 
+
+        /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
         @media (prefers-reduced-motion: reduce) {
 
-            .bg-petal,
+            .petal-overlay {
+                display: none;
+            }
+
+
             .logo,
             .logo-ring {
-                animation: none !important;
+                animation: none;
             }
         }
     </style>
 </head>
 
+
 <body>
 
+
     <!-- =====================================================
-       PETAL BACKGROUND
+       BACKGROUND
   ====================================================== -->
 
-    <div class="petal-field" id="petalField" aria-hidden="true"></div>
+    <div class="background-grid"></div>
 
-    <div class="page-shell">
 
-        <main class="app">
+    <!-- =====================================================
+       FRONT PETALS
 
-            <!-- ==================================================
-           HEADER
-      =================================================== -->
+       These now fall ABOVE the glass cards.
+  ====================================================== -->
 
-            <header class="topbar">
+    <div class="petal-overlay" id="petalOverlay" aria-hidden="true"></div>
 
-                <div class="brand-pill">
-                    <span class="online"></span>
-                    Petal Moss
-                </div>
 
-                <button class="theme-button" id="themeButton" type="button" aria-label="Switch to dark mode">
-                    <i class="fa-solid fa-moon" id="themeIcon"></i>
-                </button>
+    <!-- =====================================================
+       PAGE
+  ====================================================== -->
 
-            </header>
+    <main class="page">
 
-            <!-- ==================================================
-           HERO
-      =================================================== -->
 
-            <section class="profile">
+        <!-- HEADER -->
 
-                <div class="logo-shell">
+        <header class="topbar">
 
-                    <div class="logo-ring"></div>
+            <div class="brand-pill">
 
-                    <div class="logo">
+                <span class="online-dot"></span>
 
-                        <img id="brandLogo"
-                            src="https://drive.google.com/thumbnail?id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt&sz=w1000"
-                            alt="Petal Moss" loading="eager" decoding="async" />
+                Petal Moss
 
-                    </div>
-
-                </div>
-
-                <div class="eyebrow">
-                    <span>✦</span>
-                    Handmade creations
-                    <span>✦</span>
-                </div>
-
-                <h1>
-                    Petal Moss
-                </h1>
-
-                <p class="tagline">
-                    Beautiful handmade floral creations,
-                    bouquets and personalized gifts made
-                    for your special moments.
-                </p>
-
-                <div class="order-chip">
-                    <span>✨</span>
-                    Custom orders available
-                </div>
-
-            </section>
-
-            <!-- ==================================================
-           WHATSAPP
-      =================================================== -->
-
-            <div class="section-title">
-                Let's create something beautiful
             </div>
 
-            <a class="whatsapp"
-                href="https://wa.me/94788889853?text=Hi%20Petal%20Moss%20%F0%9F%8C%B8%20I%27d%20like%20to%20place%20an%20order."
-                target="_blank" rel="noopener noreferrer">
 
-                <div class="wa-icon">
-                    <i class="fa-brands fa-whatsapp"></i>
+            <button class="theme-button" id="themeButton" type="button" aria-label="Switch to dark mode">
+
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </header>
+
+
+        <!-- ==================================================
+         HERO
+    =================================================== -->
+
+        <section class="hero">
+
+            <div class="logo-shell">
+
+                <div class="logo-ring"></div>
+
+
+                <div class="logo">
+
+                    <img id="brandLogo"
+                        src="https://drive.google.com/thumbnail?id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt&sz=w1000"
+                        alt="Petal Moss logo" loading="eager" decoding="async" fetchpriority="high" />
+
                 </div>
 
-                <div class="wa-copy">
+            </div>
+
+
+            <div class="eyebrow">
+
+                <span>✦</span>
+
+                Handmade creations
+
+                <span>✦</span>
+
+            </div>
+
+
+            <h1>
+                Petal Moss
+            </h1>
+
+
+            <p class="tagline">
+
+                Beautiful handmade floral creations,
+                bouquets and personalized gifts made
+                for your special moments.
+
+            </p>
+
+
+            <div class="custom-chip">
+
+                <span>✨</span>
+
+                Custom orders available
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+         WHATSAPP
+    =================================================== -->
+
+        <div class="section-title">
+
+            Let's create something beautiful
+
+        </div>
+
+
+        <a class="whatsapp-card"
+            href="https://wa.me/94788889853?text=Hi%20Petal%20Moss%20%F0%9F%8C%B8%20I%27d%20like%20to%20place%20an%20order."
+            target="_blank" rel="noopener noreferrer">
+
+            <div class="whatsapp-icon">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </div>
+
+
+            <div class="whatsapp-copy">
+
+                <strong>
+                    Chat with us on WhatsApp
+                </strong>
+
+                <span>
+                    Fastest way to order or customize
+                </span>
+
+            </div>
+
+
+            <div class="whatsapp-arrow">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </a>
+
+
+        <!-- ==================================================
+         SOCIALS
+    =================================================== -->
+
+        <div class="section-title">
+
+            Follow our creations
+
+        </div>
+
+
+        <section class="social-grid">
+
+
+            <a class="social-card instagram" href="https://instagram.com/petalmoss_collection" target="_blank"
+                rel="noopener noreferrer">
+
+                <div class="social-icon">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </div>
+
+                <strong>
+                    Instagram
+                </strong>
+
+                <small>
+                    @petalmoss_collection
+                </small>
+
+            </a>
+
+
+            <a class="social-card tiktok" href="https://www.tiktok.com/@petalmoss_collection" target="_blank"
+                rel="noopener noreferrer">
+
+                <div class="social-icon">
+
+                    <i class="fa-brands fa-tiktok"></i>
+
+                </div>
+
+                <strong>
+                    TikTok
+                </strong>
+
+                <small>
+                    @petalmoss_collection
+                </small>
+
+            </a>
+
+
+            <a class="social-card facebook" href="https://www.facebook.com/profile.php?id=61590887205588"
+                target="_blank" rel="noopener noreferrer">
+
+                <div class="social-icon">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </div>
+
+                <strong>
+                    Facebook
+                </strong>
+
+                <small>
+                    Petal Moss
+                </small>
+
+            </a>
+
+
+        </section>
+
+
+        <!-- ==================================================
+         CONTACT
+    =================================================== -->
+
+        <div class="section-title">
+
+            Contact Petal Moss
+
+        </div>
+
+
+        <section class="contact-grid">
+
+
+            <a class="contact-card" href="mailto:petalmosscollection@gmail.com">
+
+                <div class="contact-icon">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                </div>
+
+
+                <div class="contact-copy">
 
                     <strong>
-                        Chat with us on WhatsApp
+                        Email us
                     </strong>
 
                     <span>
-                        Fastest way to order or customize
+                        petalmosscollection@gmail.com
                     </span>
 
                 </div>
 
-                <div class="wa-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+
+            <a class="contact-card" href="tel:+94788889853">
+
+                <div class="contact-icon">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+
+                <div class="contact-copy">
+
+                    <strong>
+                        078 888 9853
+                    </strong>
+
+                    <span>
+                        Tap to call Petal Moss
+                    </span>
+
                 </div>
 
             </a>
 
-            <!-- ==================================================
-           SOCIALS
-      =================================================== -->
 
-            <div class="section-title">
-                Follow our creations
+        </section>
+
+
+        <!-- ==================================================
+         BUTTONS
+    =================================================== -->
+
+        <div class="actions">
+
+
+            <button class="action save-contact" onclick="saveContact()">
+
+                <i class="fa-regular fa-address-card"></i>
+
+                Save Contact
+
+            </button>
+
+
+            <button class="action share-button" onclick="shareProfile()">
+
+                <i class="fa-solid fa-share-nodes"></i>
+
+                Share
+
+            </button>
+
+
+        </div>
+
+
+        <!-- ==================================================
+         NOTE
+    =================================================== -->
+
+        <section class="note">
+
+            <div>
+                🌷
             </div>
 
-            <section class="social-grid">
 
-                <a class="social-card instagram" href="https://instagram.com/petalmoss_collection" target="_blank"
-                    rel="noopener noreferrer">
+            <strong>
+                Made specially for you
+            </strong>
 
-                    <div class="social-icon">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
 
-                    <strong>Instagram</strong>
+            <p>
 
-                    <small>
-                        @petalmoss_collection
-                    </small>
+                Choose your colours, flowers,
+                wrapping style and arrangement.
+                Message us to create a personalized
+                Petal Moss piece for your special occasion.
 
-                </a>
+            </p>
 
-                <a class="social-card tiktok" href="https://www.tiktok.com/@petalmoss_collection" target="_blank"
-                    rel="noopener noreferrer">
+        </section>
 
-                    <div class="social-icon">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </div>
 
-                    <strong>TikTok</strong>
+        <!-- ==================================================
+         FOOTER
+    =================================================== -->
 
-                    <small>
-                        @petalmoss_collection
-                    </small>
+        <footer>
 
-                </a>
+            <strong>
+                PETAL MOSS
+            </strong>
 
-                <a class="social-card facebook" href="https://www.facebook.com/profile.php?id=61590887205588"
-                    target="_blank" rel="noopener noreferrer">
+            <br>
 
-                    <div class="social-icon">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
+            Handmade with ♥ in Sri Lanka
 
-                    <strong>Facebook</strong>
+            <br>
 
-                    <small>
-                        Petal Moss
-                    </small>
+            Flowers • Gifts • Special Moments
 
-                </a>
+        </footer>
 
-            </section>
 
-            <!-- ==================================================
-           CONTACT
-      =================================================== -->
+    </main>
 
-            <div class="section-title">
-                Contact Petal Moss
-            </div>
-
-            <section class="contact-stack">
-
-                <a class="contact-card" href="mailto:petalmosscollection@gmail.com">
-
-                    <div class="contact-icon">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-
-                    <div class="contact-copy">
-
-                        <strong>
-                            Email us
-                        </strong>
-
-                        <span>
-                            petalmosscollection@gmail.com
-                        </span>
-
-                    </div>
-
-                </a>
-
-                <a class="contact-card" href="tel:+94788889853">
-
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-
-                    <div class="contact-copy">
-
-                        <strong>
-                            078 888 9853
-                        </strong>
-
-                        <span>
-                            Tap to call Petal Moss
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </section>
-
-            <!-- ==================================================
-           ACTIONS
-      =================================================== -->
-
-            <div class="actions">
-
-                <button class="action save" onclick="saveContact()">
-                    <i class="fa-regular fa-address-card"></i>
-                    Save Contact
-                </button>
-
-                <button class="action share" onclick="shareProfile()">
-                    <i class="fa-solid fa-share-nodes"></i>
-                    Share
-                </button>
-
-            </div>
-
-            <!-- ==================================================
-           NOTE
-      =================================================== -->
-
-            <section class="note">
-
-                <div>🌷</div>
-
-                <strong>
-                    Made specially for you
-                </strong>
-
-                <p>
-                    Choose your colours, flowers,
-                    wrapping style and arrangement.
-                    Message us to create a personalized
-                    Petal Moss piece for your special occasion.
-                </p>
-
-            </section>
-
-            <footer>
-
-                <strong>
-                    PETAL MOSS
-                </strong>
-
-                <br>
-
-                Handmade with ♥ in Sri Lanka
-
-                <br>
-
-                Flowers • Gifts • Special Moments
-
-            </footer>
-
-        </main>
-
-    </div>
 
     <script>
+
         /* =====================================================
            BUSINESS
         ====================================================== */
 
         const BUSINESS = {
-            name: "Petal Moss",
-            phoneInternational: "+94788889853",
-            email: "petalmosscollection@gmail.com",
-            instagram: "https://instagram.com/petalmoss_collection",
-            tiktok: "https://www.tiktok.com/@petalmoss_collection",
-            facebook: "https://www.facebook.com/profile.php?id=61590887205588"
+
+            name:
+                "Petal Moss",
+
+            phone:
+                "+94788889853",
+
+            email:
+                "petalmosscollection@gmail.com",
+
+            instagram:
+                "https://instagram.com/petalmoss_collection",
+
+            tiktok:
+                "https://www.tiktok.com/@petalmoss_collection",
+
+            facebook:
+                "https://www.facebook.com/profile.php?id=61590887205588"
+
         };
+
 
         /* =====================================================
            THEME
-           ALWAYS START LIGHT
+    
+           Always light when page is freshly loaded.
+           No localStorage.
         ====================================================== */
 
         const root =
             document.documentElement;
 
+
         const themeButton =
-            document.getElementById("themeButton");
+            document.getElementById(
+                "themeButton"
+            );
+
 
         const themeIcon =
-            document.getElementById("themeIcon");
+            document.getElementById(
+                "themeIcon"
+            );
+
 
         const themeMeta =
-            document.getElementById("themeMeta");
+            document.getElementById(
+                "themeMeta"
+            );
 
-        let currentTheme =
+
+        let theme =
             "light";
 
-        function setTheme(theme) {
-            currentTheme = theme;
+
+        function applyTheme(
+            nextTheme
+        ) {
+
+            theme =
+                nextTheme;
+
 
             root.setAttribute(
                 "data-theme",
-                theme
+                nextTheme
             );
 
-            const isDark =
-                theme === "dark";
+
+            const dark =
+                nextTheme === "dark";
+
 
             themeIcon.className =
-                isDark
+                dark
                     ? "fa-solid fa-sun"
                     : "fa-solid fa-moon";
 
+
             themeButton.setAttribute(
+
                 "aria-label",
-                isDark
+
+                dark
                     ? "Switch to light mode"
                     : "Switch to dark mode"
+
             );
+
 
             themeMeta.setAttribute(
+
                 "content",
-                isDark
-                    ? "#0d0b12"
+
+                dark
+                    ? "#0d0a12"
                     : "#fff8fb"
+
             );
+
         }
 
-        setTheme("light");
+
+        /*
+          IMPORTANT
+          Always start light.
+        */
+
+        applyTheme(
+            "light"
+        );
+
 
         themeButton.addEventListener(
+
             "click",
+
             () => {
 
-                setTheme(
-                    currentTheme === "light"
+                applyTheme(
+
+                    theme === "light"
                         ? "dark"
                         : "light"
+
                 );
 
             }
+
         );
 
+
         /* =====================================================
-           LOGO FALLBACK
+           LOGO
+    
+           Do NOT request /logo.png anymore.
+    
+           Primary Drive URL:
+           thumbnail endpoint.
+    
+           Fallback:
+           another Google Drive endpoint.
+    
+           Therefore your Vercel console will no longer
+           spam GET /logo.png 404.
         ====================================================== */
 
         const brandLogo =
@@ -1439,141 +1971,311 @@
                 "brandLogo"
             );
 
+
+        const DRIVE_FALLBACK =
+            "https://drive.google.com/uc?export=view&id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt";
+
+
         brandLogo.addEventListener(
+
             "error",
+
             () => {
 
                 if (
-                    brandLogo.dataset.fallback
+                    brandLogo.dataset.driveFallback
                 ) {
+
+                    /*
+                      Both Google Drive endpoints failed.
+                      Avoid an infinite error loop.
+                    */
+
+                    brandLogo.style.opacity =
+                        ".35";
+
+
                     return;
+
                 }
 
-                brandLogo.dataset.fallback =
+
+                brandLogo.dataset.driveFallback =
                     "true";
 
+
                 brandLogo.src =
-                    "logo.png";
+                    DRIVE_FALLBACK;
+
             }
+
         );
 
+
         /* =====================================================
-           CONTINUOUS PETALS
+           PETALS
     
-           Simple CSS-only animation once created.
-           No scroll listeners.
-           No touch listeners.
-           Much smoother on mobile.
+           PERFORMANCE DESIGN:
+           - created ONCE
+           - CSS-only animation afterwards
+           - no scroll listener
+           - no touch listener
+           - no repeating JS setTimeout
+           - no forced reflows
+           - no DOM insert/remove loop
         ====================================================== */
 
-        const petalField =
+        const petalOverlay =
             document.getElementById(
-                "petalField"
+                "petalOverlay"
             );
 
-        const PETAL_COUNT =
-            window.innerWidth < 380
-                ? 18
-                : 24;
 
-        function random(min, max) {
+        function rand(
+            min,
+            max
+        ) {
+
             return (
                 Math.random() *
                 (max - min)
             ) + min;
+
         }
 
-        function buildPetals() {
+
+        function createPetals() {
+
+            /*
+              Small screens:
+              fewer petals for better performance.
+      
+              Larger phones/tablets:
+              slightly more.
+            */
+
+            const width =
+                window.innerWidth;
+
+
+            let count;
+
+
+            if (
+                width < 360
+            ) {
+
+                count =
+                    16;
+
+            } else if (
+                width < 600
+            ) {
+
+                count =
+                    20;
+
+            } else {
+
+                count =
+                    24;
+
+            }
+
 
             const fragment =
                 document.createDocumentFragment();
 
+
             for (
                 let i = 0;
-                i < PETAL_COUNT;
+                i < count;
                 i++
             ) {
 
                 const petal =
-                    document.createElement("span");
+                    document.createElement(
+                        "span"
+                    );
+
 
                 petal.className =
-                    "bg-petal";
+                    "petal";
 
-                const width =
-                    random(6, 12);
 
-                const height =
-                    width *
-                    random(1.3, 1.65);
+                /*
+                  A few petals are softly blurred
+                  to give foreground/background depth.
+                */
+
+                if (
+                    Math.random() > .78
+                ) {
+
+                    petal.classList.add(
+                        "blur"
+                    );
+
+                }
+
+
+                const size =
+                    rand(
+                        6,
+                        12
+                    );
+
+
+                const duration =
+                    rand(
+                        10.5,
+                        17.5
+                    );
+
+
+                /*
+                  Negative delay means petals
+                  are already distributed vertically
+                  when page first opens.
+                */
+
+                const delay =
+                    -rand(
+                        0,
+                        duration
+                    );
+
 
                 petal.style.setProperty(
-                    "--w",
-                    `${width}px`
-                );
 
-                petal.style.setProperty(
-                    "--h",
-                    `${height}px`
-                );
-
-                petal.style.setProperty(
                     "--left",
-                    `${random(1, 98)}%`
+
+                    `${rand(1, 99)}%`
+
                 );
 
+
                 petal.style.setProperty(
+
+                    "--size",
+
+                    `${size}px`
+
+                );
+
+
+                petal.style.setProperty(
+
                     "--opacity",
-                    random(.18, .52)
+
+                    rand(
+                        .20,
+                        .50
+                    )
+
                 );
 
+
                 petal.style.setProperty(
+
                     "--duration",
-                    `${random(10, 18)}s`
+
+                    `${duration}s`
+
                 );
 
+
                 petal.style.setProperty(
+
                     "--delay",
-                    `${random(-18, 0)}s`
+
+                    `${delay}s`
+
                 );
 
-                petal.style.setProperty(
-                    "--drift1",
-                    `${random(-25, 25)}px`
-                );
 
                 petal.style.setProperty(
-                    "--drift2",
-                    `${random(-40, 40)}px`
+
+                    "--start-rotation",
+
+                    `${rand(-130, 130)}deg`
+
                 );
 
-                petal.style.setProperty(
-                    "--drift3",
-                    `${random(-28, 28)}px`
-                );
+
+                /*
+                  Each petal follows
+                  a different horizontal path.
+                */
 
                 petal.style.setProperty(
-                    "--drift4",
-                    `${random(-18, 18)}px`
+
+                    "--x1",
+
+                    `${rand(-28, 28)}px`
+
                 );
+
+
+                petal.style.setProperty(
+
+                    "--x2",
+
+                    `${rand(-45, 45)}px`
+
+                );
+
+
+                petal.style.setProperty(
+
+                    "--x3",
+
+                    `${rand(-34, 34)}px`
+
+                );
+
+
+                petal.style.setProperty(
+
+                    "--x4",
+
+                    `${rand(-22, 22)}px`
+
+                );
+
 
                 fragment.appendChild(
                     petal
                 );
+
             }
 
-            petalField.appendChild(
+
+            petalOverlay.appendChild(
                 fragment
             );
+
         }
 
-        if (
-            !window.matchMedia(
+
+        /*
+          Respect accessibility preference.
+        */
+
+        const reducedMotion =
+            window.matchMedia(
                 "(prefers-reduced-motion: reduce)"
-            ).matches
+            );
+
+
+        if (
+            !reducedMotion.matches
         ) {
-            buildPetals();
+
+            createPetals();
+
         }
+
 
         /* =====================================================
            SAVE CONTACT
@@ -1586,7 +2288,7 @@
 VERSION:3.0
 FN:${BUSINESS.name}
 ORG:${BUSINESS.name}
-TEL;TYPE=CELL:${BUSINESS.phoneInternational}
+TEL;TYPE=CELL:${BUSINESS.phone}
 EMAIL;TYPE=INTERNET:${BUSINESS.email}
 URL:${BUSINESS.instagram}
 X-SOCIALPROFILE;TYPE=instagram:${BUSINESS.instagram}
@@ -1595,36 +2297,59 @@ X-SOCIALPROFILE;TYPE=tiktok:${BUSINESS.tiktok}
 NOTE:Handmade floral creations, bouquets and customized gifts.
 END:VCARD`;
 
+
             const blob =
                 new Blob(
-                    [vcard],
+
+                    [
+                        vcard
+                    ],
+
                     {
                         type:
                             "text/vcard;charset=utf-8"
                     }
+
                 );
 
+
             const url =
-                URL.createObjectURL(blob);
+                URL.createObjectURL(
+                    blob
+                );
 
-            const link =
-                document.createElement("a");
 
-            link.href = url;
+            const anchor =
+                document.createElement(
+                    "a"
+                );
 
-            link.download =
+
+            anchor.href =
+                url;
+
+
+            anchor.download =
                 "Petal-Moss-Contact.vcf";
 
+
             document.body.appendChild(
-                link
+                anchor
             );
 
-            link.click();
 
-            link.remove();
+            anchor.click();
 
-            URL.revokeObjectURL(url);
+
+            anchor.remove();
+
+
+            URL.revokeObjectURL(
+                url
+            );
+
         }
+
 
         /* =====================================================
            SHARE
@@ -1633,14 +2358,18 @@ END:VCARD`;
         async function shareProfile() {
 
             const data = {
-                title: "Petal Moss",
+
+                title:
+                    "Petal Moss",
 
                 text:
                     "Connect with Petal Moss 🌸 Handmade floral creations and customized gifts.",
 
                 url:
                     window.location.href
+
             };
+
 
             try {
 
@@ -1652,15 +2381,26 @@ END:VCARD`;
                         data
                     );
 
-                } else {
+                } else if (
+                    navigator.clipboard
+                ) {
 
                     await navigator.clipboard.writeText(
                         window.location.href
                     );
+
                 }
 
-            } catch { }
+            } catch {
+
+                /*
+                  User closing native share is normal.
+                */
+
+            }
+
         }
+
     </script>
 
 </body>
