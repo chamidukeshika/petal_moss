@@ -21,14 +21,14 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
     <style>
         :root {
             --bg-main: #fff8fb;
             --bg-mid: #fff4f8;
-            --bg-end: #fff9fc;
+            --bg-end: #fffafd;
 
             --text: #292428;
             --text-soft: #776b70;
@@ -36,87 +36,37 @@
             --pink: #f28ca6;
             --pink-dark: #d96d89;
 
-            --glass-1: rgba(255, 255, 255, .38);
-            --glass-2: rgba(255, 255, 255, .18);
-            --glass-border: rgba(255, 255, 255, .58);
-            --glass-highlight: rgba(255, 255, 255, .76);
+            --glass-1: rgba(255, 255, 255, .44);
+            --glass-2: rgba(255, 255, 255, .22);
+            --glass-border: rgba(255, 255, 255, .62);
 
-            --shadow:
-                0 18px 50px rgba(137, 82, 101, .10);
+            --shadow: 0 16px 40px rgba(137, 82, 101, .09);
+            --shadow-soft: 0 10px 26px rgba(121, 75, 88, .06);
 
-            --shadow-soft:
-                0 12px 30px rgba(121, 75, 88, .07);
-
-            --aurora-1: #ffd0df;
-            --aurora-2: #e6d5ff;
-            --aurora-3: #ffe5d1;
-
-            --grid-line: rgba(225, 132, 159, .08);
-
-            --petal-a: rgba(255, 168, 196, .66);
-            --petal-b: rgba(255, 229, 237, .22);
-
-            --instagram-bg: rgba(255, 226, 239, .52);
-            --instagram-icon: #e94d92;
-
-            --tiktok-bg: rgba(245, 245, 245, .36);
-            --tiktok-icon: #111111;
-
-            --facebook-bg: rgba(226, 238, 255, .52);
-            --facebook-icon: #1877f2;
+            --petal-1: rgba(255, 156, 190, .70);
+            --petal-2: rgba(255, 222, 234, .30);
         }
 
         html[data-theme="dark"] {
-            --bg-main: #0f0c15;
-            --bg-mid: #17111f;
-            --bg-end: #0a0910;
+            --bg-main: #0d0b12;
+            --bg-mid: #16101d;
+            --bg-end: #09080e;
 
-            --text: #f8f3f7;
+            --text: #faf6f9;
             --text-soft: #bdb2ba;
 
-            --pink: #ff8eab;
-            --pink-dark: #ff7d9d;
+            --pink: #ff8eac;
+            --pink-dark: #ff7d9e;
 
-            --glass-1: rgba(255, 255, 255, .095);
-            --glass-2: rgba(255, 255, 255, .032);
-            --glass-border: rgba(255, 255, 255, .15);
-            --glass-highlight: rgba(255, 255, 255, .20);
+            --glass-1: rgba(255, 255, 255, .09);
+            --glass-2: rgba(255, 255, 255, .035);
+            --glass-border: rgba(255, 255, 255, .14);
 
-            --shadow:
-                0 24px 70px rgba(0, 0, 0, .38);
+            --shadow: 0 20px 55px rgba(0, 0, 0, .32);
+            --shadow-soft: 0 12px 30px rgba(0, 0, 0, .22);
 
-            --shadow-soft:
-                0 16px 40px rgba(0, 0, 0, .28);
-
-            --aurora-1: #642145;
-            --aurora-2: #48316f;
-            --aurora-3: #5e362e;
-
-            --grid-line: rgba(255, 255, 255, .04);
-
-            --petal-a: rgba(255, 118, 164, .68);
-            --petal-b: rgba(218, 164, 255, .22);
-
-            --instagram-bg:
-                linear-gradient(145deg,
-                    rgba(255, 72, 141, .20),
-                    rgba(255, 141, 199, .08));
-
-            --instagram-icon: #ff5da2;
-
-            --tiktok-bg:
-                linear-gradient(145deg,
-                    rgba(255, 255, 255, .13),
-                    rgba(255, 255, 255, .055));
-
-            --tiktok-icon: #ffffff;
-
-            --facebook-bg:
-                linear-gradient(145deg,
-                    rgba(24, 119, 242, .22),
-                    rgba(88, 154, 255, .08));
-
-            --facebook-icon: #55a0ff;
+            --petal-1: rgba(255, 111, 159, .72);
+            --petal-2: rgba(212, 156, 255, .22);
         }
 
         * {
@@ -139,33 +89,34 @@
 
             font-family:
                 "DM Sans",
-                system-ui,
                 -apple-system,
                 BlinkMacSystemFont,
+                "Segoe UI",
                 sans-serif;
 
             color: var(--text);
 
             background:
-                radial-gradient(circle at 14% 7%,
-                    color-mix(in srgb, var(--aurora-1) 48%, transparent),
+                radial-gradient(circle at 12% 8%,
+                    rgba(255, 206, 224, .42),
+                    transparent 28%),
+                radial-gradient(circle at 88% 18%,
+                    rgba(225, 212, 255, .34),
                     transparent 30%),
-                radial-gradient(circle at 87% 18%,
-                    color-mix(in srgb, var(--aurora-2) 44%, transparent),
-                    transparent 32%),
-                radial-gradient(circle at 20% 82%,
-                    color-mix(in srgb, var(--aurora-3) 30%, transparent),
-                    transparent 32%),
                 linear-gradient(145deg,
-                    var(--bg-main) 0%,
+                    var(--bg-main),
                     var(--bg-mid) 45%,
-                    var(--bg-end) 100%);
+                    var(--bg-end));
 
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
 
             transition:
-                background .45s ease,
-                color .35s ease;
+                background .35s ease,
+                color .3s ease;
+
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         a,
@@ -177,291 +128,123 @@
             font: inherit;
         }
 
-        img {
-            max-width: 100%;
-        }
-
         .page-shell {
-            width: min(100%, 860px);
+            width: min(100%, 820px);
             margin: 0 auto;
 
             padding-inline:
-                max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right));
+                max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-right));
         }
 
         .app {
-            position: relative;
-
             width: 100%;
             min-height: 100vh;
 
             padding:
-                max(18px, env(safe-area-inset-top)) clamp(12px, 3vw, 24px) max(34px, env(safe-area-inset-bottom));
-
-            overflow: hidden;
-            isolation: isolate;
+                max(16px, env(safe-area-inset-top)) clamp(10px, 3vw, 24px) max(32px, env(safe-area-inset-bottom));
         }
 
         /* =====================================================
-       BACKGROUND
+       BACKGROUND PETALS
     ===================================================== */
 
-        .aurora {
+        .petal-field {
             position: fixed;
             inset: 0;
 
-            z-index: -10;
+            z-index: -1;
 
-            pointer-events: none;
             overflow: hidden;
+            pointer-events: none;
         }
 
-        .aurora-ball {
+        .bg-petal {
             position: absolute;
+            top: -30px;
 
-            border-radius: 50%;
+            width: var(--w);
+            height: var(--h);
 
-            filter: blur(58px);
-            opacity: .44;
+            left: var(--left);
+
+            border-radius: 75% 25% 70% 30%;
+
+            background:
+                linear-gradient(145deg,
+                    var(--petal-1),
+                    var(--petal-2));
+
+            opacity: var(--opacity);
 
             animation:
-                auroraMove 16s ease-in-out infinite alternate;
+                bgPetalFall var(--duration) linear infinite;
+
+            animation-delay:
+                var(--delay);
 
             will-change: transform;
         }
 
-        .aurora-1 {
-            width: clamp(220px, 38vw, 360px);
-            height: clamp(220px, 38vw, 360px);
-
-            top: -120px;
-            left: -150px;
-
-            background: var(--aurora-1);
-        }
-
-        .aurora-2 {
-            width: clamp(260px, 44vw, 420px);
-            height: clamp(260px, 44vw, 420px);
-
-            top: 22vh;
-            right: -220px;
-
-            background: var(--aurora-2);
-
-            animation-delay: -5s;
-        }
-
-        .aurora-3 {
-            width: clamp(220px, 38vw, 340px);
-            height: clamp(220px, 38vw, 340px);
-
-            left: -150px;
-            bottom: 4vh;
-
-            background: var(--aurora-3);
-
-            animation-delay: -9s;
-        }
-
-        @keyframes auroraMove {
-            from {
-                transform:
-                    translate3d(0, 0, 0) scale(1);
-            }
-
-            to {
-                transform:
-                    translate3d(28px, -28px, 0) scale(1.12);
-            }
-        }
-
-        .grid-bg {
-            position: fixed;
-            inset: 0;
-
-            z-index: -9;
-
-            pointer-events: none;
-
-            opacity: .5;
-
-            background-image:
-                linear-gradient(var(--grid-line) 1px,
-                    transparent 1px),
-                linear-gradient(90deg,
-                    var(--grid-line) 1px,
-                    transparent 1px);
-
-            background-size: 34px 34px;
-
-            mask-image:
-                linear-gradient(to bottom,
-                    transparent,
-                    black 15%,
-                    black 82%,
-                    transparent);
-
-            -webkit-mask-image:
-                linear-gradient(to bottom,
-                    transparent,
-                    black 15%,
-                    black 82%,
-                    transparent);
-        }
-
-        /* =====================================================
-       OUTER PETALS
-    ===================================================== */
-
-        .outer-petal {
-            position: fixed;
-            top: -50px;
-
-            z-index: -2;
-
-            width: 11px;
-            height: 17px;
-
-            border-radius:
-                75% 25% 70% 30%;
-
-            background:
-                linear-gradient(145deg,
-                    var(--petal-a),
-                    var(--petal-b));
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            animation:
-                outerPetalFall linear infinite;
-        }
-
-        .outer-petal:nth-child(1) {
-            left: 5%;
-            animation-duration: 16s;
-            animation-delay: 0s;
-        }
-
-        .outer-petal:nth-child(2) {
-            left: 17%;
-            animation-duration: 20s;
-            animation-delay: -5s;
-        }
-
-        .outer-petal:nth-child(3) {
-            left: 30%;
-            animation-duration: 15s;
-            animation-delay: -8s;
-        }
-
-        .outer-petal:nth-child(4) {
-            left: 45%;
-            animation-duration: 19s;
-            animation-delay: -3s;
-        }
-
-        .outer-petal:nth-child(5) {
-            left: 59%;
-            animation-duration: 17s;
-            animation-delay: -10s;
-        }
-
-        .outer-petal:nth-child(6) {
-            left: 72%;
-            animation-duration: 21s;
-            animation-delay: -6s;
-        }
-
-        .outer-petal:nth-child(7) {
-            left: 84%;
-            animation-duration: 18s;
-            animation-delay: -12s;
-        }
-
-        .outer-petal:nth-child(8) {
-            left: 93%;
-            animation-duration: 22s;
-            animation-delay: -9s;
-        }
-
-        @keyframes outerPetalFall {
+        @keyframes bgPetalFall {
             0% {
                 transform:
-                    translate3d(0, -40px, 0) rotate(0deg) scale(.75);
-
-                opacity: 0;
+                    translate3d(0, -40px, 0) rotate(0deg);
             }
 
-            8% {
-                opacity: .72;
-            }
-
-            28% {
+            25% {
                 transform:
-                    translate3d(18px, 28vh, 0) rotate(80deg) scale(.94);
+                    translate3d(var(--drift1), 28vh, 0) rotate(90deg);
             }
 
-            55% {
+            50% {
                 transform:
-                    translate3d(-14px, 56vh, 0) rotate(180deg) scale(1.02);
+                    translate3d(var(--drift2), 55vh, 0) rotate(180deg);
             }
 
-            80% {
+            75% {
                 transform:
-                    translate3d(22px, 84vh, 0) rotate(270deg) scale(.92);
+                    translate3d(var(--drift3), 82vh, 0) rotate(270deg);
             }
 
             100% {
                 transform:
-                    translate3d(-18px, 115vh, 0) rotate(360deg) scale(.84);
-
-                opacity: 0;
+                    translate3d(var(--drift4), 112vh, 0) rotate(360deg);
             }
         }
 
         /* =====================================================
-       TOPBAR
+       TOP BAR
     ===================================================== */
 
         .topbar {
             display: flex;
-
             align-items: center;
             justify-content: space-between;
 
             gap: 12px;
 
             margin-bottom:
-                clamp(14px, 2.8vw, 20px);
+                clamp(14px, 3vw, 20px);
         }
 
         .brand-pill,
-        .theme-toggle {
+        .theme-button {
+            border: 1px solid var(--glass-border);
+
             background:
                 linear-gradient(145deg,
                     var(--glass-1),
                     var(--glass-2));
 
-            border:
-                1px solid var(--glass-border);
-
-            backdrop-filter:
-                blur(26px) saturate(175%);
-
-            -webkit-backdrop-filter:
-                blur(26px) saturate(175%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
 
             box-shadow:
-                0 10px 26px rgba(0, 0, 0, .06),
-                inset 0 1px 0 var(--glass-highlight);
+                0 8px 22px rgba(0, 0, 0, .05);
         }
 
         .brand-pill {
             display: inline-flex;
-
             align-items: center;
 
             gap: 9px;
@@ -471,83 +254,68 @@
 
             border-radius: 999px;
 
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             font-size:
-                clamp(11px, 2.8vw, 13px);
+                clamp(11px, 2.9vw, 13px);
 
             font-weight: 800;
-
-            white-space: nowrap;
         }
 
-        .online-dot {
+        .online {
             width: 8px;
             height: 8px;
 
-            flex-shrink: 0;
-
             border-radius: 50%;
 
-            background:
-                #4bd589;
+            background: #49d68b;
 
             box-shadow:
-                0 0 0 4px rgba(75, 213, 137, .12);
-
-            animation:
-                onlinePulse 2s ease-in-out infinite;
+                0 0 0 4px rgba(73, 214, 139, .12);
         }
 
-        @keyframes onlinePulse {
-            50% {
-                box-shadow:
-                    0 0 0 8px rgba(75, 213, 137, 0);
-            }
-        }
-
-        .theme-toggle {
+        .theme-button {
             width:
-                clamp(40px, 9vw, 46px);
+                clamp(40px, 10vw, 46px);
 
             height:
-                clamp(40px, 9vw, 46px);
+                clamp(40px, 10vw, 46px);
 
             flex-shrink: 0;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
 
-            color:
-                var(--pink-dark);
-
-            border:
-                1px solid var(--glass-border);
+            color: var(--pink-dark);
 
             cursor: pointer;
 
             font-size:
-                clamp(14px, 3vw, 16px);
+                clamp(14px, 3.5vw, 17px);
+
+            transition: transform .18s ease;
+        }
+
+        .theme-button:active {
+            transform: scale(.94);
         }
 
         /* =====================================================
-       PROFILE
+       HERO
     ===================================================== */
 
         .profile {
-            position: relative;
-
             width: 100%;
 
             padding:
-                clamp(22px, 5vw, 34px) clamp(16px, 4vw, 28px) clamp(22px, 5vw, 30px);
+                clamp(24px, 6vw, 38px) clamp(15px, 4vw, 28px);
 
             border-radius:
                 clamp(24px, 6vw, 36px);
+
+            text-align: center;
 
             background:
                 linear-gradient(145deg,
@@ -557,228 +325,79 @@
             border:
                 1px solid var(--glass-border);
 
-            backdrop-filter:
-                blur(34px) saturate(180%);
-
-            -webkit-backdrop-filter:
-                blur(34px) saturate(180%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
 
             box-shadow:
-                var(--shadow),
-                inset 0 1px 0 var(--glass-highlight);
-
-            overflow: hidden;
-
-            text-align: center;
+                var(--shadow);
         }
-
-        .profile::before {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            z-index: 1;
-
-            pointer-events: none;
-
-            background:
-                linear-gradient(145deg,
-                    rgba(255, 255, 255, .18),
-                    transparent 32%,
-                    transparent 70%,
-                    rgba(255, 255, 255, .025));
-        }
-
-        .profile-content {
-            position: relative;
-            z-index: 3;
-        }
-
-        /* =====================================================
-       INNER PETALS
-    ===================================================== */
-
-        .inner-petal-layer {
-            position: absolute;
-            inset: 0;
-
-            z-index: 2;
-
-            overflow: hidden;
-
-            border-radius: inherit;
-
-            pointer-events: none;
-        }
-
-        .random-petal {
-            position: absolute;
-
-            top: -24px;
-
-            width: var(--petal-width);
-            height: var(--petal-height);
-
-            border-radius:
-                75% 25% 70% 30%;
-
-            background:
-                linear-gradient(145deg,
-                    var(--petal-a),
-                    var(--petal-b));
-
-            opacity: 0;
-
-            transform-origin: center;
-
-            animation:
-                randomInnerFall var(--fall-duration) linear forwards;
-
-            will-change:
-                transform,
-                opacity;
-
-            transition:
-                translate .25s ease-out;
-        }
-
-        @keyframes randomInnerFall {
-            0% {
-                transform:
-                    translate3d(0, -28px, 0) rotate(var(--rotate-start)) scale(var(--scale-start));
-
-                opacity: 0;
-            }
-
-            7% {
-                opacity:
-                    var(--petal-opacity);
-            }
-
-            24% {
-                transform:
-                    translate3d(calc(var(--drift) * .5),
-                        24%,
-                        0) rotate(calc(var(--rotate-start) + 90deg)) scale(var(--scale-mid));
-            }
-
-            52% {
-                transform:
-                    translate3d(calc(var(--drift) * -.35),
-                        54%,
-                        0) rotate(calc(var(--rotate-start) + 190deg)) scale(var(--scale-mid));
-            }
-
-            78% {
-                transform:
-                    translate3d(var(--drift),
-                        82%,
-                        0) rotate(calc(var(--rotate-start) + 285deg)) scale(var(--scale-end));
-            }
-
-            100% {
-                transform:
-                    translate3d(calc(var(--drift) * -.45),
-                        116%,
-                        0) rotate(calc(var(--rotate-start) + 390deg)) scale(var(--scale-end));
-
-                opacity: 0;
-            }
-        }
-
-        /* =====================================================
-       LOGO
-    ===================================================== */
 
         .logo-shell {
             position: relative;
 
             width:
-                clamp(108px, 27vw, 142px);
+                clamp(108px, 29vw, 145px);
 
-            height:
-                clamp(108px, 27vw, 142px);
+            aspect-ratio: 1;
 
             margin:
-                2px auto clamp(14px, 3vw, 20px);
+                0 auto clamp(16px, 4vw, 22px);
         }
 
         .logo-ring {
             position: absolute;
-
             inset: -7px;
 
             border-radius: 50%;
 
             background:
-                conic-gradient(from 180deg,
-                    #ffb7c8,
-                    #d9c6ff,
-                    #ffd8b9,
-                    #ffb7c8);
+                conic-gradient(#ffb6c9,
+                    #d7c5ff,
+                    #ffd7b9,
+                    #ffb6c9);
 
-            opacity: .56;
+            opacity: .55;
 
             animation:
-                spinRing 18s linear infinite;
+                ring 20s linear infinite;
         }
 
         .logo-ring::after {
             content: "";
 
             position: absolute;
-
             inset: 3px;
 
             border-radius: 50%;
 
-            background:
-                color-mix(in srgb,
-                    var(--bg-main) 92%,
-                    transparent);
+            background: var(--bg-main);
         }
 
-        @keyframes spinRing {
+        @keyframes ring {
             to {
-                transform:
-                    rotate(360deg);
+                transform: rotate(360deg);
             }
         }
 
         .logo {
             position: relative;
 
-            z-index: 2;
-
             width: 100%;
             height: 100%;
 
-            padding:
-                clamp(5px, 1.5vw, 7px);
+            z-index: 2;
+
+            padding: 6px;
 
             border-radius: 50%;
 
-            background:
-                linear-gradient(145deg,
-                    var(--glass-1),
-                    var(--glass-2));
-
-            border:
-                1px solid var(--glass-border);
-
-            backdrop-filter:
-                blur(18px) saturate(170%);
-
-            -webkit-backdrop-filter:
-                blur(18px) saturate(170%);
+            background: rgba(255, 255, 255, .86);
 
             box-shadow:
-                0 18px 42px rgba(189, 100, 127, .15),
-                inset 0 1px 0 var(--glass-highlight);
+                0 14px 34px rgba(189, 100, 127, .13);
 
             animation:
-                logoZoom 4.8s ease-in-out infinite;
+                logoPulse 5s ease-in-out infinite;
         }
 
         .logo img {
@@ -787,66 +406,51 @@
 
             display: block;
 
-            object-fit: cover;
-
             border-radius: 50%;
 
-            background:
-                rgba(255, 255, 255, .9);
+            object-fit: cover;
         }
 
-        @keyframes logoZoom {
+        @keyframes logoPulse {
 
             0%,
             100% {
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
             50% {
-                transform:
-                    scale(1.035);
+                transform: scale(1.025);
             }
         }
 
-        /* =====================================================
-       TYPOGRAPHY
-    ===================================================== */
-
         .eyebrow {
-            display: inline-flex;
+            display: flex;
 
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
             flex-wrap: wrap;
 
-            gap: 6px;
+            gap: 7px;
 
             margin-bottom:
-                clamp(7px, 1.8vw, 10px);
+                clamp(9px, 2.5vw, 13px);
 
-            max-width: 100%;
-
-            color:
-                var(--pink-dark);
+            color: var(--pink-dark);
 
             font-size:
-                clamp(9px, 2.5vw, 12px);
+                clamp(9px, 2.7vw, 12px);
 
             font-weight: 800;
 
-            letter-spacing:
-                clamp(.08em, .35vw, .13em);
+            letter-spacing: .12em;
 
             text-transform: uppercase;
-
-            text-align: center;
         }
 
         .profile h1 {
             margin-bottom:
-                clamp(10px, 2.5vw, 14px);
+                clamp(12px, 3vw, 18px);
 
             font-family:
                 "Cormorant Garamond",
@@ -854,7 +458,7 @@
                 serif;
 
             font-size:
-                clamp(42px, 12vw, 64px);
+                clamp(44px, 13vw, 68px);
 
             font-weight: 700;
 
@@ -862,124 +466,93 @@
 
             letter-spacing: -.035em;
 
-            color:
-                var(--text);
-
-            text-rendering:
-                optimizeLegibility;
-
-            -webkit-font-smoothing:
-                antialiased;
+            color: var(--text);
         }
 
         .tagline {
-            width:
-                min(100%, 520px);
+            width: min(100%, 530px);
 
             margin: 0 auto;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
-                clamp(12px, 3.4vw, 15px);
+                clamp(12px, 3.5vw, 15px);
 
             font-weight: 500;
 
             line-height: 1.65;
 
             text-wrap: balance;
-
-            -webkit-font-smoothing:
-                antialiased;
         }
 
-        .custom-chip {
+        .order-chip {
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            gap: 7px;
-
-            max-width: 100%;
+            gap: 8px;
 
             margin-top:
-                clamp(14px, 3vw, 20px);
+                clamp(17px, 4vw, 24px);
 
             padding:
-                clamp(8px, 2vw, 10px) clamp(12px, 3vw, 15px);
+                clamp(9px, 2.3vw, 11px) clamp(14px, 4vw, 18px);
 
             border-radius: 999px;
 
+            color: var(--pink-dark);
+
             background:
-                rgba(255, 255, 255, .14);
+                rgba(255, 255, 255, .15);
 
             border:
                 1px solid var(--glass-border);
-
-            backdrop-filter:
-                blur(22px) saturate(170%);
-
-            -webkit-backdrop-filter:
-                blur(22px) saturate(170%);
-
-            box-shadow:
-                inset 0 1px 0 var(--glass-highlight);
-
-            color:
-                var(--pink-dark);
 
             font-size:
                 clamp(10px, 2.8vw, 12px);
 
             font-weight: 800;
-
-            text-align: center;
         }
 
         /* =====================================================
-       SECTION TITLES
+       SECTION TITLE
     ===================================================== */
 
         .section-title {
             margin:
-                clamp(20px, 4vw, 28px) 4px clamp(9px, 2vw, 12px);
+                clamp(21px, 5vw, 30px) 4px clamp(9px, 2vw, 12px);
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
-                clamp(12px, 3vw, 14px);
+                clamp(12px, 3.2vw, 14px);
 
             font-weight: 800;
-
-            line-height: 1.35;
         }
 
         /* =====================================================
        WHATSAPP
     ===================================================== */
 
-        .whatsapp-main {
+        .whatsapp {
             display: flex;
             align-items: center;
 
-            gap:
-                clamp(10px, 2.5vw, 14px);
-
             width: 100%;
 
+            gap:
+                clamp(10px, 3vw, 14px);
+
             min-height:
-                clamp(72px, 18vw, 86px);
+                clamp(74px, 19vw, 88px);
 
             padding:
-                clamp(12px, 3vw, 16px);
+                clamp(12px, 3.5vw, 17px);
 
             border-radius:
-                clamp(20px, 5vw, 26px);
-
-            overflow: hidden;
+                clamp(21px, 6vw, 28px);
 
             text-decoration: none;
 
@@ -987,15 +560,14 @@
 
             background:
                 linear-gradient(135deg,
-                    #25d366,
-                    #1cb85b);
+                    #29d86d,
+                    #17b957);
 
             border:
                 1px solid rgba(255, 255, 255, .18);
 
             box-shadow:
-                0 17px 44px rgba(37, 211, 102, .22),
-                inset 0 1px 0 rgba(255, 255, 255, .25);
+                0 16px 36px rgba(37, 211, 102, .18);
         }
 
         .wa-icon {
@@ -1008,17 +580,13 @@
             flex-shrink: 0;
 
             display: grid;
-
             place-items: center;
 
             border-radius:
-                clamp(15px, 4vw, 18px);
+                clamp(15px, 4vw, 19px);
 
             background:
                 rgba(255, 255, 255, .16);
-
-            border:
-                1px solid rgba(255, 255, 255, .18);
 
             font-size:
                 clamp(24px, 6vw, 29px);
@@ -1050,8 +618,6 @@
 
             font-size:
                 clamp(10px, 2.8vw, 12px);
-
-            line-height: 1.35;
         }
 
         .wa-arrow {
@@ -1070,9 +636,6 @@
 
             background:
                 rgba(255, 255, 255, .16);
-
-            border:
-                1px solid rgba(255, 255, 255, .16);
         }
 
         /* =====================================================
@@ -1086,35 +649,33 @@
                 repeat(3, minmax(0, 1fr));
 
             gap:
-                clamp(8px, 2vw, 12px);
+                clamp(8px, 2.3vw, 13px);
         }
 
         .social-card {
             min-width: 0;
 
             min-height:
-                clamp(105px, 28vw, 126px);
+                clamp(108px, 29vw, 130px);
 
             padding:
-                clamp(12px, 3vw, 15px) clamp(8px, 2vw, 12px);
+                clamp(12px, 3vw, 16px) clamp(7px, 2vw, 12px);
 
             display: flex;
 
             flex-direction: column;
 
-            justify-content: center;
-
             align-items: center;
+            justify-content: center;
 
             text-align: center;
 
             text-decoration: none;
 
-            color:
-                var(--text);
+            color: var(--text);
 
             border-radius:
-                clamp(20px, 5vw, 26px);
+                clamp(20px, 5.5vw, 27px);
 
             background:
                 linear-gradient(145deg,
@@ -1124,134 +685,99 @@
             border:
                 1px solid var(--glass-border);
 
-            backdrop-filter:
-                blur(28px) saturate(175%);
-
-            -webkit-backdrop-filter:
-                blur(28px) saturate(175%);
-
             box-shadow:
-                var(--shadow-soft),
-                inset 0 1px 0 var(--glass-highlight);
+                var(--shadow-soft);
 
             transition:
-                transform .25s ease,
-                box-shadow .25s ease;
+                transform .18s ease;
         }
 
-        .social-card:hover {
-            transform:
-                translateY(-3px) scale(1.01);
+        .social-card:active {
+            transform: scale(.97);
         }
 
         .social-icon {
             width:
-                clamp(42px, 11vw, 50px);
+                clamp(43px, 11vw, 52px);
 
             height:
-                clamp(42px, 11vw, 50px);
+                clamp(43px, 11vw, 52px);
 
             display: grid;
             place-items: center;
 
             margin-bottom:
-                clamp(7px, 1.8vw, 10px);
+                clamp(8px, 2vw, 11px);
 
             border-radius:
-                clamp(14px, 4vw, 17px);
-
-            backdrop-filter:
-                blur(16px) saturate(160%);
-
-            -webkit-backdrop-filter:
-                blur(16px) saturate(160%);
-
-            border:
-                1px solid var(--glass-border);
-
-            box-shadow:
-                inset 0 1px 0 var(--glass-highlight);
+                clamp(14px, 4vw, 18px);
 
             font-size:
-                clamp(19px, 5vw, 23px);
-
-            transition:
-                background .35s ease,
-                color .35s ease,
-                transform .25s ease;
+                clamp(20px, 5vw, 24px);
         }
 
         .instagram .social-icon {
+            color: #e94d92;
             background:
-                var(--instagram-bg);
-
-            color:
-                var(--instagram-icon);
+                rgba(255, 224, 238, .50);
         }
 
         .tiktok .social-icon {
+            color: var(--text);
             background:
-                var(--tiktok-bg);
-
-            color:
-                var(--tiktok-icon);
+                rgba(245, 245, 245, .28);
         }
 
         .facebook .social-icon {
+            color: #1877f2;
             background:
-                var(--facebook-bg);
-
-            color:
-                var(--facebook-icon);
+                rgba(222, 237, 255, .52);
         }
 
         html[data-theme="dark"] .instagram .social-icon {
-            box-shadow:
-                0 0 24px rgba(255, 82, 154, .10),
-                inset 0 1px 0 rgba(255, 255, 255, .18);
+            color: #ff63a6;
+            background:
+                rgba(255, 81, 148, .17);
         }
 
         html[data-theme="dark"] .tiktok .social-icon {
-            box-shadow:
-                0 0 22px rgba(255, 255, 255, .05),
-                inset 0 1px 0 rgba(255, 255, 255, .16);
+            color: white;
+            background:
+                rgba(255, 255, 255, .08);
         }
 
         html[data-theme="dark"] .facebook .social-icon {
-            box-shadow:
-                0 0 24px rgba(66, 145, 255, .11),
-                inset 0 1px 0 rgba(255, 255, 255, .18);
+            color: #61a8ff;
+            background:
+                rgba(61, 137, 255, .16);
         }
 
         .social-card strong {
+            display: block;
+
             font-size:
                 clamp(11px, 3vw, 13px);
 
             font-weight: 800;
-
-            line-height: 1.25;
         }
 
         .social-card small {
             display: block;
 
-            max-width: 100%;
+            width: 100%;
 
             margin-top: 4px;
-
-            color:
-                var(--text-soft);
-
-            font-size:
-                clamp(8px, 2.2vw, 10px);
-
-            line-height: 1.25;
 
             overflow: hidden;
 
             text-overflow: ellipsis;
 
             white-space: nowrap;
+
+            color: var(--text-soft);
+
+            font-size:
+                clamp(8px, 2.2vw, 10px);
         }
 
         /* =====================================================
@@ -1267,27 +793,25 @@
 
         .contact-card {
             display: flex;
-
             align-items: center;
-
-            gap:
-                clamp(10px, 2.5vw, 14px);
 
             width: 100%;
 
+            gap:
+                clamp(10px, 3vw, 14px);
+
             min-height:
-                clamp(62px, 16vw, 72px);
+                clamp(64px, 17vw, 73px);
 
             padding:
-                clamp(10px, 2.6vw, 13px) clamp(12px, 3vw, 15px);
+                clamp(10px, 3vw, 13px) clamp(12px, 3vw, 15px);
 
             border-radius:
-                clamp(18px, 4.5vw, 23px);
+                clamp(18px, 5vw, 23px);
 
             text-decoration: none;
 
-            color:
-                var(--text);
+            color: var(--text);
 
             background:
                 linear-gradient(145deg,
@@ -1297,15 +821,8 @@
             border:
                 1px solid var(--glass-border);
 
-            backdrop-filter:
-                blur(28px) saturate(175%);
-
-            -webkit-backdrop-filter:
-                blur(28px) saturate(175%);
-
             box-shadow:
-                var(--shadow-soft),
-                inset 0 1px 0 var(--glass-highlight);
+                var(--shadow-soft);
         }
 
         .contact-icon {
@@ -1321,26 +838,20 @@
             place-items: center;
 
             border-radius:
-                clamp(13px, 3.6vw, 16px);
+                clamp(13px, 4vw, 16px);
+
+            color: var(--pink-dark);
 
             background:
-                color-mix(in srgb,
-                    var(--pink) 13%,
-                    transparent);
-
-            border:
-                1px solid var(--glass-border);
-
-            color:
-                var(--pink-dark);
+                rgba(242, 140, 166, .10);
         }
 
-        .contact-content {
+        .contact-copy {
             flex: 1;
             min-width: 0;
         }
 
-        .contact-content strong {
+        .contact-copy strong {
             display: block;
 
             margin-bottom: 3px;
@@ -1351,81 +862,48 @@
             font-weight: 800;
         }
 
-        .contact-content span {
+        .contact-copy span {
             display: block;
-
-            color:
-                var(--text-soft);
-
-            font-size:
-                clamp(9px, 2.6vw, 11px);
 
             overflow: hidden;
 
             text-overflow: ellipsis;
 
             white-space: nowrap;
-        }
 
-        .small-arrow {
-            width:
-                clamp(28px, 7.5vw, 32px);
+            color: var(--text-soft);
 
-            height:
-                clamp(28px, 7.5vw, 32px);
-
-            flex-shrink: 0;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255, 255, 255, .12);
-
-            border:
-                1px solid var(--glass-border);
-
-            color:
-                var(--pink-dark);
+            font-size:
+                clamp(9px, 2.7vw, 11px);
         }
 
         /* =====================================================
        ACTIONS
     ===================================================== */
 
-        .action-grid {
+        .actions {
             display: grid;
 
             grid-template-columns:
-                minmax(0, 1.35fr) minmax(0, .8fr);
+                1.3fr .8fr;
 
             gap:
                 clamp(8px, 2vw, 11px);
 
             margin-top:
-                clamp(10px, 2vw, 13px);
+                clamp(10px, 3vw, 13px);
         }
 
-        .action-btn {
-            min-width: 0;
-
+        .action {
             min-height:
-                clamp(52px, 13vw, 60px);
+                clamp(53px, 14vw, 61px);
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            gap:
-                clamp(6px, 1.5vw, 9px);
-
-            padding-inline:
-                clamp(10px, 2.5vw, 14px);
+            gap: 8px;
 
             border-radius:
                 clamp(16px, 4vw, 20px);
@@ -1438,24 +916,22 @@
             font-weight: 800;
         }
 
-        .save-btn {
+        .save {
             color: white;
 
-            border:
-                1px solid rgba(255, 255, 255, .14);
+            border: none;
 
             background:
                 linear-gradient(135deg,
-                    #ee8da8,
-                    #cf6988);
+                    #ec8aa5,
+                    #ce6888);
 
             box-shadow:
-                0 15px 34px rgba(214, 111, 139, .22);
+                0 12px 28px rgba(214, 111, 139, .18);
         }
 
-        .share-btn {
-            color:
-                var(--pink-dark);
+        .share {
+            color: var(--pink-dark);
 
             border:
                 1px solid var(--glass-border);
@@ -1464,31 +940,21 @@
                 linear-gradient(145deg,
                     var(--glass-1),
                     var(--glass-2));
-
-            backdrop-filter:
-                blur(24px) saturate(175%);
-
-            -webkit-backdrop-filter:
-                blur(24px) saturate(175%);
-
-            box-shadow:
-                var(--shadow-soft),
-                inset 0 1px 0 var(--glass-highlight);
         }
 
         /* =====================================================
-       NOTE + FOOTER
+       NOTE
     ===================================================== */
 
-        .order-note {
+        .note {
             margin-top:
-                clamp(16px, 3vw, 20px);
+                clamp(16px, 4vw, 21px);
 
             padding:
-                clamp(16px, 4vw, 20px);
+                clamp(17px, 4vw, 22px);
 
             border-radius:
-                clamp(20px, 5vw, 24px);
+                clamp(20px, 5vw, 25px);
 
             text-align: center;
 
@@ -1500,51 +966,33 @@
             border:
                 1px solid var(--glass-border);
 
-            backdrop-filter:
-                blur(28px) saturate(175%);
-
-            -webkit-backdrop-filter:
-                blur(28px) saturate(175%);
-
             box-shadow:
-                var(--shadow-soft),
-                inset 0 1px 0 var(--glass-highlight);
+                var(--shadow-soft);
         }
 
-        .order-note-icon {
-            margin-bottom: 8px;
-
-            font-size:
-                clamp(20px, 5vw, 24px);
-        }
-
-        .order-note strong {
+        .note strong {
             display: block;
 
-            margin-bottom: 6px;
+            margin: 5px 0 6px;
 
             font-family:
                 "Cormorant Garamond",
                 Georgia,
                 serif;
 
-            color:
-                var(--text);
-
             font-size:
-                clamp(18px, 4.5vw, 22px);
+                clamp(19px, 5vw, 23px);
 
             font-weight: 700;
         }
 
-        .order-note p {
+        .note p {
             width:
                 min(100%, 520px);
 
-            margin: 0 auto;
+            margin: auto;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(10px, 2.9vw, 12px);
@@ -1554,42 +1002,33 @@
 
         footer {
             padding:
-                clamp(22px, 5vw, 30px) 0 5px;
+                clamp(22px, 5vw, 30px) 0 4px;
 
             text-align: center;
 
-            color:
-                var(--text-soft);
+            color: var(--text-soft);
 
             font-size:
                 clamp(9px, 2.5vw, 11px);
 
-            line-height: 1.75;
+            line-height: 1.8;
         }
 
         footer strong {
-            color:
-                var(--pink-dark);
-
-            font-weight: 800;
-        }
-
-        .heart {
-            color:
-                var(--pink);
+            color: var(--pink-dark);
         }
 
         /* =====================================================
-       SMALL PHONES
+       RESPONSIVE
     ===================================================== */
 
-        @media (max-width: 340px) {
+        @media (max-width: 350px) {
             .social-grid {
                 grid-template-columns: 1fr;
             }
 
             .social-card {
-                min-height: 88px;
+                min-height: 84px;
 
                 flex-direction: row;
 
@@ -1604,37 +1043,15 @@
                 margin-bottom: 0;
             }
 
-            .social-card small {
-                white-space: normal;
-            }
-
-            .action-grid {
+            .actions {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* =====================================================
-       TABLETS
-    ===================================================== */
-
         @media (min-width: 700px) {
-            .page-shell {
-                width:
-                    min(100%, 820px);
-            }
-
             .app {
                 padding-inline:
-                    clamp(22px, 5vw, 42px);
-            }
-
-            .profile {
-                padding:
-                    40px 34px 34px;
-            }
-
-            .social-grid {
-                gap: 16px;
+                    clamp(22px, 5vw, 40px);
             }
 
             .contact-stack {
@@ -1642,28 +1059,18 @@
                     repeat(2, minmax(0, 1fr));
             }
 
-            .action-grid {
-                max-width: 560px;
-
-                margin-inline: auto;
-
-                margin-top: 14px;
+            .actions {
+                width: min(560px, 100%);
+                margin: 14px auto 0;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
 
-            *,
-            *::before,
-            *::after {
-                animation-duration:
-                    .001ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .001ms !important;
+            .bg-petal,
+            .logo,
+            .logo-ring {
+                animation: none !important;
             }
         }
     </style>
@@ -1671,90 +1078,85 @@
 
 <body>
 
-    <div class="aurora">
-        <div class="aurora-ball aurora-1"></div>
-        <div class="aurora-ball aurora-2"></div>
-        <div class="aurora-ball aurora-3"></div>
-    </div>
+    <!-- =====================================================
+       PETAL BACKGROUND
+  ====================================================== -->
 
-    <div class="grid-bg"></div>
-
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
-    <div class="outer-petal"></div>
+    <div class="petal-field" id="petalField" aria-hidden="true"></div>
 
     <div class="page-shell">
 
         <main class="app">
 
+            <!-- ==================================================
+           HEADER
+      =================================================== -->
+
             <header class="topbar">
 
                 <div class="brand-pill">
-                    <span class="online-dot"></span>
+                    <span class="online"></span>
                     Petal Moss
                 </div>
 
-                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+                <button class="theme-button" id="themeButton" type="button" aria-label="Switch to dark mode">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
                 </button>
 
             </header>
 
+            <!-- ==================================================
+           HERO
+      =================================================== -->
+
             <section class="profile">
 
-                <div class="inner-petal-layer" id="innerPetalLayer" aria-hidden="true"></div>
+                <div class="logo-shell">
 
-                <div class="profile-content">
+                    <div class="logo-ring"></div>
 
-                    <div class="logo-shell">
+                    <div class="logo">
 
-                        <div class="logo-ring"></div>
+                        <img id="brandLogo"
+                            src="https://drive.google.com/thumbnail?id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt&sz=w1000"
+                            alt="Petal Moss" loading="eager" decoding="async" />
 
-                        <div class="logo">
-
-                            <img id="brandLogo"
-                                src="https://drive.google.com/uc?export=view&id=15H2YGCLqRM3mM8u078v9gCR-3ZTBKgDt"
-                                alt="Petal Moss logo" loading="eager" decoding="async" referrerpolicy="no-referrer" />
-
-                        </div>
-
-                    </div>
-
-                    <div class="eyebrow">
-                        <span>✦</span>
-                        Handmade creations
-                        <span>✦</span>
-                    </div>
-
-                    <h1>
-                        Petal Moss
-                    </h1>
-
-                    <p class="tagline">
-                        Beautiful handmade floral creations,
-                        bouquets and personalized gifts made
-                        for your special moments.
-                    </p>
-
-                    <div class="custom-chip">
-                        <span>✨</span>
-                        Custom orders available
                     </div>
 
                 </div>
 
+                <div class="eyebrow">
+                    <span>✦</span>
+                    Handmade creations
+                    <span>✦</span>
+                </div>
+
+                <h1>
+                    Petal Moss
+                </h1>
+
+                <p class="tagline">
+                    Beautiful handmade floral creations,
+                    bouquets and personalized gifts made
+                    for your special moments.
+                </p>
+
+                <div class="order-chip">
+                    <span>✨</span>
+                    Custom orders available
+                </div>
+
             </section>
+
+            <!-- ==================================================
+           WHATSAPP
+      =================================================== -->
 
             <div class="section-title">
                 Let's create something beautiful
             </div>
 
-            <a class="whatsapp-main"
+            <a class="whatsapp"
                 href="https://wa.me/94788889853?text=Hi%20Petal%20Moss%20%F0%9F%8C%B8%20I%27d%20like%20to%20place%20an%20order."
                 target="_blank" rel="noopener noreferrer">
 
@@ -1763,6 +1165,7 @@
                 </div>
 
                 <div class="wa-copy">
+
                     <strong>
                         Chat with us on WhatsApp
                     </strong>
@@ -1770,6 +1173,7 @@
                     <span>
                         Fastest way to order or customize
                     </span>
+
                 </div>
 
                 <div class="wa-arrow">
@@ -1777,6 +1181,10 @@
                 </div>
 
             </a>
+
+            <!-- ==================================================
+           SOCIALS
+      =================================================== -->
 
             <div class="section-title">
                 Follow our creations
@@ -1831,6 +1239,10 @@
 
             </section>
 
+            <!-- ==================================================
+           CONTACT
+      =================================================== -->
+
             <div class="section-title">
                 Contact Petal Moss
             </div>
@@ -1843,7 +1255,7 @@
                         <i class="fa-regular fa-envelope"></i>
                     </div>
 
-                    <div class="contact-content">
+                    <div class="contact-copy">
 
                         <strong>
                             Email us
@@ -1855,10 +1267,6 @@
 
                     </div>
 
-                    <div class="small-arrow">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-
                 </a>
 
                 <a class="contact-card" href="tel:+94788889853">
@@ -1867,7 +1275,7 @@
                         <i class="fa-solid fa-phone"></i>
                     </div>
 
-                    <div class="contact-content">
+                    <div class="contact-copy">
 
                         <strong>
                             078 888 9853
@@ -1879,33 +1287,35 @@
 
                     </div>
 
-                    <div class="small-arrow">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-
                 </a>
 
             </section>
 
-            <div class="action-grid">
+            <!-- ==================================================
+           ACTIONS
+      =================================================== -->
 
-                <button class="action-btn save-btn" onclick="saveContact()">
+            <div class="actions">
+
+                <button class="action save" onclick="saveContact()">
                     <i class="fa-regular fa-address-card"></i>
                     Save Contact
                 </button>
 
-                <button class="action-btn share-btn" onclick="shareProfile()">
+                <button class="action share" onclick="shareProfile()">
                     <i class="fa-solid fa-share-nodes"></i>
                     Share
                 </button>
 
             </div>
 
-            <section class="order-note">
+            <!-- ==================================================
+           NOTE
+      =================================================== -->
 
-                <div class="order-note-icon">
-                    🌷
-                </div>
+            <section class="note">
+
+                <div>🌷</div>
 
                 <strong>
                     Made specially for you
@@ -1926,13 +1336,11 @@
                     PETAL MOSS
                 </strong>
 
-                <br />
+                <br>
 
-                Handmade with
-                <span class="heart">♥</span>
-                in Sri Lanka
+                Handmade with ♥ in Sri Lanka
 
-                <br />
+                <br>
 
                 Flowers • Gifts • Special Moments
 
@@ -1943,9 +1351,12 @@
     </div>
 
     <script>
+        /* =====================================================
+           BUSINESS
+        ====================================================== */
+
         const BUSINESS = {
             name: "Petal Moss",
-            phoneDisplay: "078 888 9853",
             phoneInternational: "+94788889853",
             email: "petalmosscollection@gmail.com",
             instagram: "https://instagram.com/petalmoss_collection",
@@ -1955,13 +1366,14 @@
 
         /* =====================================================
            THEME
-        ===================================================== */
+           ALWAYS START LIGHT
+        ====================================================== */
 
-        const html =
+        const root =
             document.documentElement;
 
-        const themeToggle =
-            document.getElementById("themeToggle");
+        const themeButton =
+            document.getElementById("themeButton");
 
         const themeIcon =
             document.getElementById("themeIcon");
@@ -1969,70 +1381,58 @@
         const themeMeta =
             document.getElementById("themeMeta");
 
-        function applyTheme(theme) {
+        let currentTheme =
+            "light";
 
-            html.setAttribute(
+        function setTheme(theme) {
+            currentTheme = theme;
+
+            root.setAttribute(
                 "data-theme",
                 theme
             );
 
-            const dark =
+            const isDark =
                 theme === "dark";
 
             themeIcon.className =
-                dark
+                isDark
                     ? "fa-solid fa-sun"
                     : "fa-solid fa-moon";
 
-            themeToggle.setAttribute(
+            themeButton.setAttribute(
                 "aria-label",
-                dark
+                isDark
                     ? "Switch to light mode"
                     : "Switch to dark mode"
             );
 
             themeMeta.setAttribute(
                 "content",
-                dark
-                    ? "#0f0c15"
+                isDark
+                    ? "#0d0b12"
                     : "#fff8fb"
             );
         }
 
-        const savedTheme =
-            localStorage.getItem(
-                "petalMossTheme"
-            );
+        setTheme("light");
 
-        applyTheme(
-            savedTheme === "dark"
-                ? "dark"
-                : "light"
-        );
-
-        themeToggle.addEventListener(
+        themeButton.addEventListener(
             "click",
             () => {
 
-                const next =
-                    html.getAttribute(
-                        "data-theme"
-                    ) === "dark"
-                        ? "light"
-                        : "dark";
-
-                applyTheme(next);
-
-                localStorage.setItem(
-                    "petalMossTheme",
-                    next
+                setTheme(
+                    currentTheme === "light"
+                        ? "dark"
+                        : "light"
                 );
+
             }
         );
 
         /* =====================================================
            LOGO FALLBACK
-        ===================================================== */
+        ====================================================== */
 
         const brandLogo =
             document.getElementById(
@@ -2044,12 +1444,12 @@
             () => {
 
                 if (
-                    brandLogo.dataset.fallbackUsed
+                    brandLogo.dataset.fallback
                 ) {
                     return;
                 }
 
-                brandLogo.dataset.fallbackUsed =
+                brandLogo.dataset.fallback =
                     "true";
 
                 brandLogo.src =
@@ -2058,162 +1458,131 @@
         );
 
         /* =====================================================
-           RANDOM PETALS
-        ===================================================== */
+           CONTINUOUS PETALS
+    
+           Simple CSS-only animation once created.
+           No scroll listeners.
+           No touch listeners.
+           Much smoother on mobile.
+        ====================================================== */
 
-        const innerPetalLayer =
+        const petalField =
             document.getElementById(
-                "innerPetalLayer"
+                "petalField"
             );
 
-        const PETAL_SETTINGS = {
-            spawnMin: 180,
-            spawnMax: 420,
-            durationMin: 10,
-            durationMax: 17,
-            maxPetals: 42
-        };
+        const PETAL_COUNT =
+            window.innerWidth < 380
+                ? 18
+                : 24;
 
-        function randomBetween(
-            min,
-            max
-        ) {
+        function random(min, max) {
             return (
                 Math.random() *
                 (max - min)
             ) + min;
         }
 
-        function createInnerPetal() {
+        function buildPetals() {
 
-            if (
-                innerPetalLayer.children.length
-                >=
-                PETAL_SETTINGS.maxPetals
+            const fragment =
+                document.createDocumentFragment();
+
+            for (
+                let i = 0;
+                i < PETAL_COUNT;
+                i++
             ) {
-                scheduleNextPetal();
-                return;
+
+                const petal =
+                    document.createElement("span");
+
+                petal.className =
+                    "bg-petal";
+
+                const width =
+                    random(6, 12);
+
+                const height =
+                    width *
+                    random(1.3, 1.65);
+
+                petal.style.setProperty(
+                    "--w",
+                    `${width}px`
+                );
+
+                petal.style.setProperty(
+                    "--h",
+                    `${height}px`
+                );
+
+                petal.style.setProperty(
+                    "--left",
+                    `${random(1, 98)}%`
+                );
+
+                petal.style.setProperty(
+                    "--opacity",
+                    random(.18, .52)
+                );
+
+                petal.style.setProperty(
+                    "--duration",
+                    `${random(10, 18)}s`
+                );
+
+                petal.style.setProperty(
+                    "--delay",
+                    `${random(-18, 0)}s`
+                );
+
+                petal.style.setProperty(
+                    "--drift1",
+                    `${random(-25, 25)}px`
+                );
+
+                petal.style.setProperty(
+                    "--drift2",
+                    `${random(-40, 40)}px`
+                );
+
+                petal.style.setProperty(
+                    "--drift3",
+                    `${random(-28, 28)}px`
+                );
+
+                petal.style.setProperty(
+                    "--drift4",
+                    `${random(-18, 18)}px`
+                );
+
+                fragment.appendChild(
+                    petal
+                );
             }
 
-            const petal =
-                document.createElement(
-                    "span"
-                );
-
-            petal.className =
-                "random-petal";
-
-            const width =
-                randomBetween(
-                    5.5,
-                    12.5
-                );
-
-            const height =
-                width *
-                randomBetween(
-                    1.25,
-                    1.65
-                );
-
-            const duration =
-                randomBetween(
-                    PETAL_SETTINGS.durationMin,
-                    PETAL_SETTINGS.durationMax
-                );
-
-            petal.style.left =
-                `${randomBetween(2, 96)}%`;
-
-            petal.style.setProperty(
-                "--petal-width",
-                `${width}px`
-            );
-
-            petal.style.setProperty(
-                "--petal-height",
-                `${height}px`
-            );
-
-            petal.style.setProperty(
-                "--drift",
-                `${randomBetween(-46, 46)}px`
-            );
-
-            petal.style.setProperty(
-                "--fall-duration",
-                `${duration}s`
-            );
-
-            petal.style.setProperty(
-                "--rotate-start",
-                `${randomBetween(-140, 140)}deg`
-            );
-
-            petal.style.setProperty(
-                "--petal-opacity",
-                randomBetween(.24, .62)
-            );
-
-            petal.style.setProperty(
-                "--scale-start",
-                randomBetween(.62, .92)
-            );
-
-            petal.style.setProperty(
-                "--scale-mid",
-                randomBetween(.78, 1.05)
-            );
-
-            petal.style.setProperty(
-                "--scale-end",
-                randomBetween(.62, .92)
-            );
-
-            petal.dataset.windFactor =
-                randomBetween(.35, 1)
-                    .toFixed(2);
-
-            innerPetalLayer
-                .appendChild(petal);
-
-            setTimeout(
-                () => petal.remove(),
-                duration * 1000 + 600
-            );
-
-            scheduleNextPetal();
-        }
-
-        function scheduleNextPetal() {
-
-            setTimeout(
-                createInnerPetal,
-                randomBetween(
-                    PETAL_SETTINGS.spawnMin,
-                    PETAL_SETTINGS.spawnMax
-                )
+            petalField.appendChild(
+                fragment
             );
         }
 
-        for (
-            let i = 0;
-            i < 12;
-            i++
+        if (
+            !window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
         ) {
-            setTimeout(
-                createInnerPetal,
-                i * 120
-            );
+            buildPetals();
         }
 
         /* =====================================================
            SAVE CONTACT
-        ===================================================== */
+        ====================================================== */
 
         function saveContact() {
 
-            const vcard = `BEGIN:VCARD
+            const vcard =
+                `BEGIN:VCARD
 VERSION:3.0
 FN:${BUSINESS.name}
 ORG:${BUSINESS.name}
@@ -2223,7 +1592,7 @@ URL:${BUSINESS.instagram}
 X-SOCIALPROFILE;TYPE=instagram:${BUSINESS.instagram}
 X-SOCIALPROFILE;TYPE=facebook:${BUSINESS.facebook}
 X-SOCIALPROFILE;TYPE=tiktok:${BUSINESS.tiktok}
-NOTE:Handmade floral creations, bouquets, customized gifts and special occasion arrangements.
+NOTE:Handmade floral creations, bouquets and customized gifts.
 END:VCARD`;
 
             const blob =
@@ -2236,22 +1605,19 @@ END:VCARD`;
                 );
 
             const url =
-                URL.createObjectURL(
-                    blob
-                );
+                URL.createObjectURL(blob);
 
             const link =
-                document.createElement(
-                    "a"
-                );
+                document.createElement("a");
 
             link.href = url;
 
             link.download =
                 "Petal-Moss-Contact.vcf";
 
-            document.body
-                .appendChild(link);
+            document.body.appendChild(
+                link
+            );
 
             link.click();
 
@@ -2262,13 +1628,12 @@ END:VCARD`;
 
         /* =====================================================
            SHARE
-        ===================================================== */
+        ====================================================== */
 
         async function shareProfile() {
 
-            const shareData = {
-                title:
-                    "Petal Moss",
+            const data = {
+                title: "Petal Moss",
 
                 text:
                     "Connect with Petal Moss 🌸 Handmade floral creations and customized gifts.",
@@ -2282,18 +1647,19 @@ END:VCARD`;
                 if (
                     navigator.share
                 ) {
+
                     await navigator.share(
-                        shareData
+                        data
                     );
+
                 } else {
 
-                    await navigator.clipboard
-                        .writeText(
-                            window.location.href
-                        );
+                    await navigator.clipboard.writeText(
+                        window.location.href
+                    );
                 }
 
-            } catch (error) { }
+            } catch { }
         }
     </script>
 
